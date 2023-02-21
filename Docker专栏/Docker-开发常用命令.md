@@ -28,7 +28,7 @@ docker run -d -p 本机端口:容器端口  --name 容器名称 -v 本机目录:
 
 > 在启动容器时，经常性会出现启动失败，即启动后使用`docker ps`命令无法看到容器，但使用`docker ps -a`可看到表示容器启动后出于某种运用关闭了，`解决方案将-d去掉前台启动查看程序运行时日志打印情况`
 
-![image-20210502203304704](.\images\image-20210502203304704.png)
+![image-20210502203304704](./images/image-20210502203304704.png)
 
 ### 查看运行中容器信息
 
@@ -39,7 +39,7 @@ docker ps
 docker ps -a
 ~~~
 
-![image-20210804170619971](.\images\image-20210804170619971.png)
+![image-20210804170619971](./images/image-20210804170619971.png)
 
 ### 查看容器内部进程信息
 
@@ -48,7 +48,7 @@ docker ps -a
 docker top 容器id
 ~~~
 
-![image-20210502204926248](.\images\image-20210502204926248.png)
+![image-20210502204926248](./images/image-20210502204926248.png)
 
 ### 查看镜像源数据
 
@@ -57,7 +57,7 @@ docker top 容器id
 docker inspect 容器id
 ~~~
 
-![image-20210502205339679](.\images\image-20210502205339679.png)
+![image-20210502205339679](./images/image-20210502205339679.png)
 
 **重要参数说明**
 
@@ -83,7 +83,7 @@ docker exec -it -u root 容器id /bin/bash
 docker attach 容器id /bin/bash
 ~~~
 
-![image-20210502210215116](.\images\image-20210502210215116.png)
+![image-20210502210215116](./images/image-20210502210215116.png)
 
 ### 将容器内拷贝到主机上
 
@@ -91,7 +91,7 @@ docker attach 容器id /bin/bash
 docker cp 容器id:容器内路径 目标主机路径 
 ~~~
 
-![image-20210502211500961](.\images\image-20210502211500961.png)
+![image-20210502211500961](./images/image-20210502211500961.png)
 
 ### 保存自己配置的容器
 
@@ -99,13 +99,13 @@ docker cp 容器id:容器内路径 目标主机路径
 docker commit -m="提交描述" -a="作者" 容器id 目标镜像名:[TAG]
 ~~~
 
-![image-20210504131017812](.\images\image-20210504131017812.png)
+![image-20210504131017812](./images/image-20210504131017812.png)
 
 ### 容器监控
 
 > ctop容器监控命令：https://github.com/bcicen/ctop
 
-![image-20220308230138232](.\images\image-20220308230138232.png)
+![image-20220308230138232](./images/image-20220308230138232.png)
 
 ## 网络
 
@@ -282,7 +282,7 @@ docker run -d -p 80:80 \
 
 > 注意docker中nginx的默认存放html路径是再/usr/share/nginx/html所有需要修改配置文件中的root路径
 
-![image-20220113131616653](.\images\image-20220113131616653.png)
+![image-20220113131616653](./images/image-20220113131616653.png)
 
 ### 部署Jenkins服务
 

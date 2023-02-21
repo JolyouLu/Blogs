@@ -22,17 +22,17 @@ docker run -d -p 8080:9000 -v /var/run/docker.sock:/var/run/docker.sock  portain
 
 > 选择Local管理服务器本地镜像
 
-![image-20210504110409320](.\images\image-20210504110409320.png)
+![image-20210504110409320](./images/image-20210504110409320.png)
 
 **设置成功**
 
-![image-20210504111210382](.\images\image-20210504111210382.png)
+![image-20210504111210382](./images/image-20210504111210382.png)
 
 ### 面板说明
 
 > 在Docker的指示面板上，可以查看与配置Docker的容器、镜像、数据卷挂载、网络配置
 
-![image-20210504111801042](.\images\image-20210504111801042.png)
+![image-20210504111801042](./images/image-20210504111801042.png)
 
 ## Rencher
 

@@ -8,7 +8,7 @@
 >
 > 其实官方的镜像都是使用DockerFile构建的我们在dockerHub随便搜索一个镜像点击版本进去后会发现跳到一个github页面里面就有构建这个镜像的DockerFile文件，使用docker buil执行这个脚本文件就可以生成一个镜像
 
-![image-20210504212701372](.\images\image-20210504212701372.png)
+![image-20210504212701372](./images/image-20210504212701372.png)
 
 ### 编写DockerFile
 
@@ -68,21 +68,21 @@ CMD ["ls","-a"]
 docker build -f cmdtest -t cmdtest:1.0 .
 ~~~
 
-![image-20210504222744728](.\images\image-20210504222744728.png)
+![image-20210504222744728](./images/image-20210504222744728.png)
 
 **运行测试**
 
 > 运行测试时可以看到执行了ls -a命令
 
-![image-20210504222957439](.\images\image-20210504222957439.png)
+![image-20210504222957439](./images/image-20210504222957439.png)
 
 > 尝试在run 后追加命令-l，理想情况是ls -al，但是实际报错了，由于CMD特性只会执行最后一个命令，所以这里只是运行了-l命令
 
-![image-20210504223229122](.\images\image-20210504223229122.png)
+![image-20210504223229122](./images/image-20210504223229122.png)
 
 > 想使用ls -al那就需要写上完整命令才能执行成功
 
-![image-20210504223410660](.\images\image-20210504223410660.png)
+![image-20210504223410660](./images/image-20210504223410660.png)
 
 ##### ENTRYPOINT例子
 
@@ -114,17 +114,17 @@ ENTRYPOINT ["ls","-a"]
 docker build -f entrypointtest -t entrypointtest:1.0 .
 ~~~
 
-![image-20210504224001809](.\images\image-20210504224001809.png)
+![image-20210504224001809](./images/image-20210504224001809.png)
 
 **运行测试**
 
 > 运行测试时可以看到执行了ls -a命令
 
-![image-20210504224049282](.\images\image-20210504224049282.png)
+![image-20210504224049282](./images/image-20210504224049282.png)
 
 > 尝试在run 后追加命令-l，由于ENTRYPOINT特性没有替换掉原来ls -a命令，而是在后面追加`l`最后执行的是`ls -al`
 
-![image-20210504224110834](.\images\image-20210504224110834.png)
+![image-20210504224110834](./images/image-20210504224110834.png)
 
 
 
@@ -134,7 +134,7 @@ docker build -f entrypointtest -t entrypointtest:1.0 .
 
 > 通过`docker history 镜像id`可以查看到一个镜像的构建过程
 
-![image-20210504222044792](.\images\image-20210504222044792.png)
+![image-20210504222044792](./images/image-20210504222044792.png)
 
 ~~~shell
 #进入到home目录创建一个dockerfile文件夹，以后练习的文件都放到这个里面
@@ -194,19 +194,19 @@ CMD /bin/bash
 docker build -f mycentos -t mycentos:1.0 .
 ~~~
 
-![image-20210504220700119](.\images\image-20210504220700119.png)
+![image-20210504220700119](./images/image-20210504220700119.png)
 
 ##### 查看本地镜像
 
 > 通过`docker images`可以查看到我们刚刚构建的镜像
 
-![image-20210504221159108](.\images\image-20210504221159108.png)
+![image-20210504221159108](./images/image-20210504221159108.png)
 
 ##### 运行测试
 
 > 运行自己构建好的镜像后可以发现，在基础的centos添加了新功能
 
-![image-20210504221525332](.\images\image-20210504221525332.png)
+![image-20210504221525332](./images/image-20210504221525332.png)
 
 #### 构建自己的Tomcat
 
@@ -220,7 +220,7 @@ docker build -f mycentos -t mycentos:1.0 .
 
 **准备相应文件**
 
-![image-20210504224815979](.\images\image-20210504224815979.png)
+![image-20210504224815979](./images/image-20210504224815979.png)
 
 ##### 创建DockerFile文件
 
@@ -269,13 +269,13 @@ CMD /usr/local/apache-tomcat-9.0.45/bin/startup.sh && tail -f /usr/local/apache-
 docker build -t diytomcat .
 ~~~
 
-![image-20210504231500285](.\images\image-20210504231500285.png)
+![image-20210504231500285](./images/image-20210504231500285.png)
 
 ###### 查看本地镜像
 
 > 通过`docker images`可以查看到我们刚刚构建的镜像
 
-![image-20210504232154119](.\images\image-20210504232154119.png)
+![image-20210504232154119](./images/image-20210504232154119.png)
 
 ##### 运行测试
 
@@ -287,9 +287,9 @@ docker build -t diytomcat .
 docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/local/apache-tomcat-9.0.45/webapps/test -v /home/tomcat/logs:/usr/local/apache-tomcat-9.0.45/logs diytomcat
 ~~~
 
-![image-20210504232627817](.\images\image-20210504232627817.png)
+![image-20210504232627817](./images/image-20210504232627817.png)
 
-![image-20210504232844935](.\images\image-20210504232844935.png)
+![image-20210504232844935](./images/image-20210504232844935.png)
 
 **模拟发布**
 
@@ -299,15 +299,15 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 >
 > 创建一个inde.html文件内容随意
 
-![image-20210505001235422](.\images\image-20210505001235422.png)
+![image-20210505001235422](./images/image-20210505001235422.png)
 
 > 在本机的/home/tomcat/webapps/test/WEB-INF放入web.xml文件通用的百度一下就有
 
-![image-20210505001418597](.\images\image-20210505001418597.png)
+![image-20210505001418597](./images/image-20210505001418597.png)
 
 > 访问测试
 
-![image-20210505001520677](.\images\image-20210505001520677.png)
+![image-20210505001520677](./images/image-20210505001520677.png)
 
 ## 自定义镜像发布与拉取
 
@@ -327,13 +327,13 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 
 [点击此处注册DockerHub账号]: https://hub.docker.com/signup
 
-![image-20210509204552815](.\images\image-20210509204552815.png)
+![image-20210509204552815](./images/image-20210509204552815.png)
 
 #### 登录账号
 
 > 使用`docker login -u 你注册的账号`，输入密码显示`Login Succeeded`表示登录成功
 
-![image-20210509205612673](.\images\image-20210509205612673.png)
+![image-20210509205612673](./images/image-20210509205612673.png)
 
 #### 提交镜像
 
@@ -341,17 +341,17 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 >
 > 如果不规范需使用`docker tag 镜像id 新名称:版本号`命令修改镜像名称与版本信息
 
-![image-20210509211404305](.\images\image-20210509211404305.png)
+![image-20210509211404305](./images/image-20210509211404305.png)
 
-![image-20210509211336549](.\images\image-20210509211336549.png)
+![image-20210509211336549](./images/image-20210509211336549.png)
 
 **错误示范**
 
 > 如当前构建了一个叫diytomcat的镜像，当我想push到dockerHub时会招到拒绝，原因是因为镜像命名问题，叫diytomcat的镜像肯定有很多，由于命名不规范被拒绝提交了，所以在构建镜像时命名最好使用`你的账号/镜像名称:版本`方式命名，这样可以确保你的镜像能顺利提交
 
-![image-20210509211635363](.\images\image-20210509211635363.png)
+![image-20210509211635363](./images/image-20210509211635363.png)
 
-![image-20210509211623131](.\images\image-20210509211623131.png)
+![image-20210509211623131](./images/image-20210509211623131.png)
 
 ### 阿里云
 
@@ -371,31 +371,31 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 
 > 如果没有使用过`容器镜像服务`第一次进入选择个人版，然后输入仓库密码，进入就是整个页面
 
-![image-20210509214117582](.\images\image-20210509214117582.png)
+![image-20210509214117582](./images/image-20210509214117582.png)
 
 #### 创建命名空间
 
 > 选择左侧命名空间，点击创建命名空间，输入一个自己喜欢的名字即可，`注意：有一个账号只能创建3个命名空间`
 
-![image-20210509214433928](.\images\image-20210509214433928.png)
+![image-20210509214433928](./images/image-20210509214433928.png)
 
 #### 创建镜像仓库
 
 > 在创建命名空间完成后，选择左侧镜像仓库点击创建镜像仓库
 
-![image-20210509214908429](.\images\image-20210509214908429.png)
+![image-20210509214908429](./images/image-20210509214908429.png)
 
 > 下一步后选择代码源，选择本地仓库即可
 
-![image-20210509215033722](.\images\image-20210509215033722.png)
+![image-20210509215033722](./images/image-20210509215033722.png)
 
 #### 查看操作说明
 
-![image-20210509215229532](.\images\image-20210509215229532.png)
+![image-20210509215229532](./images/image-20210509215229532.png)
 
 > 点击创建好的仓库名称进去，可以看到右边公网地址等信息，你的伙伴就可以通过这个地址访问你的仓库，可以看到阿里云已经有详细的操作指南了，看着操作指南就可以做到镜像提交和拉取了
 
-![image-20210509215503369](.\images\image-20210509215503369.png)
+![image-20210509215503369](./images/image-20210509215503369.png)
 
 #### 提交一个镜像
 
@@ -403,9 +403,9 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 >
 > 如果使用`docker images`没看到hello-world镜像的话使用`docker pull hello-world`拉取一个下来
 
-![image-20210509220219751](.\images\image-20210509220219751.png)
+![image-20210509220219751](./images/image-20210509220219751.png)
 
 > 发布成功后就可以在镜像仓库中看到一个镜像版本
 
-![image-20210509220715906](.\images\image-20210509220715906.png)
+![image-20210509220715906](./images/image-20210509220715906.png)
 

@@ -6,11 +6,11 @@
 
 > 在了解Dcoker我们先了解一下什么是计算机网络，就拿我平时用的笔记本win10系统来说，在控制面板=>所有控制面板项=>网络连接，可以看到我们计算机中是拥有很多的络适配器，wifi、蓝牙、网口等模块，它们都有自己的网络适配器，那么这些网络适配器到底有什么用呢
 
-![image-20210522121558931](.\images\image-20210522121558931.png)
+![image-20210522121558931](./images/image-20210522121558931.png)
 
 >在日常生活中我们无时无刻的都在运用着计算机网络，在每一个有宽带的家庭中都有一个属于自己的局域网，看如图组成这个局域网有几个主要的东西，路由器（理解为中国电信提供给你上网的”光猫“）、交换机（理解为你家中的WIFI），当我们所有的电脑都接入同一个WiFi时那么我们的电脑就可以直接相互访问了，因为它们都处于同一个交换机管理所以它们的IP地址网段都是同一个网段，什么是IP地址网段，这里就占时不做过多解释了，由于计算机网络展开来讲可以写成一个专栏，所以只是简单描述，如需了解请自行百度
 
-![image-20210522124835372](.\images\image-20210522123632105.png)
+![image-20210522124835372](./images/image-20210522123632105.png)
 
 > 交换机：交换机主要是负责管理计算机之间的通讯，比如A开启了文件共享，B想去A获取共享的文件那么B会通过交换机去连接到A计算机并且访问它的共享文件
 >
@@ -22,7 +22,7 @@
 >
 > 通过`ip addr`可以查看到liunx里网卡信息，可以看到当前liunx下网卡有一个叫`docker0`这个网卡这个就是docker的网络，可以理解为一个交换机，每当一个容器启动时，docker0就会分配一个同一个网段的IP地址给容器，这样容器之间就可以相互通讯了
 
-![image-20210511202952099](.\images\image-20210511202952099.png)
+![image-20210511202952099](./images/image-20210511202952099.png)
 
 ### 主机与容器通讯测试
 
@@ -35,11 +35,11 @@ docker run -d -P --name tomcat01 tomcat
 docker exec -it tomcat01 ip addr
 ~~~
 
-![image-20210522130710269](.\images\image-20210522130710269.png)
+![image-20210522130710269](./images/image-20210522130710269.png)
 
 > 本机liunx直接使用`ping`命令`ping`刚刚启动了的tomcat容器发现通讯正常，那么标识我们liunx可以访问docker中的容器
 
-![image-20210522130838153](.\images\image-20210522130838153.png)
+![image-20210522130838153](./images/image-20210522130838153.png)
 
 ### 容器与容器通讯测试
 > 执行如下命令
@@ -53,7 +53,7 @@ docker exec -it tomcat02 ping 172.17.0.2
 
 > 可以发现容器与容器之间是可以相互通讯的
 
-![image-20210522134220268](.\images\image-20210522134220268.png)
+![image-20210522134220268](./images/image-20210522134220268.png)
 
 ### Docker通讯原理
 
@@ -61,11 +61,11 @@ docker exec -it tomcat02 ping 172.17.0.2
 >
 > 网络桥接特点，我们通过查看容器的网卡与主机网卡，我们可以发现容器`166: eth0@if167`网卡，在主机中也有一个`167: vetha2969b6@if166`与容器相反的网卡，这个就是“桥接模式”，可以理解为把容器中的网卡桥接到主机的docker0上，这样所有的容器都可以相互通讯了，并且让主机通过docker0可以访问所有容器
 
-![image-20210522135603656](.\images\image-20210522135603656.png)
+![image-20210522135603656](./images/image-20210522135603656.png)
 
 > 大致网络图
 
-![image-20210522141121155](.\images\image-20210522141121155.png)
+![image-20210522141121155](./images/image-20210522141121155.png)
 
 ### --Link命令
 
@@ -80,13 +80,13 @@ docker run -d -P --name tomcat03 --link tomcat01 tomcat
 
 > tomcat03使用命令ping tomcat01，注意这次使用的不是ping+IP地址了，而是直接ping+容器名称，我们发现也可以通讯了
 
-![image-20210522142336689](.\images\image-20210522142336689.png)
+![image-20210522142336689](./images/image-20210522142336689.png)
 
 **实现原理**
 
 > 其实--Link实现原理就是修改，本地的hosts文件，我们查看tomcat03的hosts文件可以发现，tomcat01直接被写死只要访问tomcat01就是访问172.17.0.2的ip地址，所以这里还是有坑，如果我容器更新了tomcat01的ip地址并且不会改变
 
-![image-20210522143425284](.\images\image-20210522143425284.png)
+![image-20210522143425284](./images/image-20210522143425284.png)
 
 ## Docker自定义网络
 
@@ -96,7 +96,7 @@ docker run -d -P --name tomcat03 --link tomcat01 tomcat
 
 > 配置docker网络需要使用到`docker network`命令，使用`docker network ls`可以查看到当前 
 
-![image-20210522144043560](.\images\image-20210522144043560.png)
+![image-20210522144043560](./images/image-20210522144043560.png)
 
 ### Docker网络模式
 
@@ -117,11 +117,11 @@ docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.
 
 > 使用`docker network ls`可以查看到刚刚创建的网络
 
-![image-20210522145330766](.\images\image-20210522145330766.png)
+![image-20210522145330766](./images/image-20210522145330766.png)
 
 > 使用` docker network inspect mynet`可以查看创建的网络详细配置
 
-![image-20210522145549561](.\images\image-20210522145549561.png)
+![image-20210522145549561](./images/image-20210522145549561.png)
 
 ### 指定网络启动容器
 
@@ -137,23 +137,23 @@ docker run -d -P --name tomcat02 --net mynet tomcat
 
 > 通过使用`docker network inspect mynet`查看网络信息，可以看到刚刚启动的2个tomcat都在配置好的网络中，可以注意到IP地址就是我们自己分配的
 
-![image-20210522150006387](.\images\image-20210522150006387.png)
+![image-20210522150006387](./images/image-20210522150006387.png)
 
 ### 通过容器名相互通讯
 
 > 使用了自定义的网络，我们不用使用`--link`命令直接使用`ping`命令通过容器名相互访问容器，自定义的网络可以解决Docker0存在的问题
 
-![image-20210522150222705](.\images\image-20210522150222705.png)
+![image-20210522150222705](./images/image-20210522150222705.png)
 
 ### 不同网络直接容器通讯
 
 > 如图，我们现在docker拥有2个网络，一个是docker0一个的mynet，那么在mynet中有2个容器tomcat01与tomcat02，在docker0上有1个容器tomcat-docker0，在实际情况下我们可能会遇到一个问题，如何让docker0中的容器与mynet容器互通
 
-![image-20210522151152123](.\images\image-20210522151152123.png)
+![image-20210522151152123](./images/image-20210522151152123.png)
 
 > 首先我们尝试直接通讯看看，可以看出直接通讯是无法通讯的
 
-![image-20210522151730567](.\images\image-20210522151730567.png)
+![image-20210522151730567](./images/image-20210522151730567.png)
 
 > 由于docker0与mynet都是不一样的网络配置，所以容器直接是无法直接通讯的，使用`docker network connect`就能解决这个问题
 
@@ -162,7 +162,7 @@ docker run -d -P --name tomcat02 --net mynet tomcat
 docker network connect mynet tomcat-docker0
 ~~~
 
-![image-20210522151855068](.\images\image-20210522151855068.png)
+![image-20210522151855068](./images/image-20210522151855068.png)
 
 
 
