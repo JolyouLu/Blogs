@@ -16,7 +16,7 @@ docker run -d -p 8080:9000 -v /var/run/docker.sock:/var/run/docker.sock  portain
 
 > 通过http://你服务器IP:8080服务Docker的Portainer，连接后会进入一个登录页面，初次登录设置登录密码
 
-![image-20210504110133568](.\images\image-20210504110133568.png)
+![image-20210504110133568](./images/image-20210504110133568.png)
 
 **选择Local只管理本地**
 
