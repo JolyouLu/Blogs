@@ -4,13 +4,13 @@
 
 > 使用RocketMQ那么需要准备JDK环境才能运行
 >
-> JDK安装教程：[Liunx-安装JDK](https://blog.csdn.net/weixin_44642403/article/details/104862775)
+> JDK安装教程：[Linux-安装JDK](../Liunx专栏/Linux-安装JDK.md)
 
 **安装包下载**
 
-> 进入到[Apache RocketMQ](https://rocketmq.apache.org/dowloading/releases/)官网，下载RocketMQ安装包
+> 进入到Apache RocketMQ：`https://rocketmq.apache.org/dowloading/releases/`官网，下载RocketMQ安装包
 >
-> 也可直接在Liunx上执行wget` https://archive.apache.org/dist/rocketmq/4.7.1/rocketmq-all-4.7.1-bin-release.zip`获取压缩包
+> 也可直接在Linux上执行wget` https://archive.apache.org/dist/rocketmq/4.7.1/rocketmq-all-4.7.1-bin-release.zip`获取压缩包
 
 ![image-20210725120533538](./images/image-20210725120533538.png)
 
@@ -39,7 +39,7 @@ source /etc/profile
 
 ### 修改初始化内存
 
-> 由于RocketMQ默认启动初始化JVM是设置了很大内存的，如果当前机器内存很小的话会发现怎么都启动不了，所以我们要修改2个启动脚本的JVM参数，如果自己的Liunx内存大于8G可跳过这步骤
+> 由于RocketMQ默认启动初始化JVM是设置了很大内存的，如果当前机器内存很小的话会发现怎么都启动不了，所以我们要修改2个启动脚本的JVM参数，如果自己的Linux内存大于8G可跳过这步骤
 
 #### runserver.sh
 

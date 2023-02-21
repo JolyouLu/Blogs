@@ -189,7 +189,7 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 
 ![image-20220127171918802](./images/image-20220127171918802.png)
 
-**liunx安装git**
+**Linux安装git**
 
 ~~~shell
 yum install git -y
@@ -261,7 +261,7 @@ cat id_rsa.pub
 
 > Jenkins使用Maven自动化构建首先需要Jenkins服务器上携带Maven
 
-[Liunx-安装Maven](https://blog.csdn.net/weixin_44642403/article/details/122722377?spm=1001.2014.3001.5501)
+[Linux-安装Maven](../Liunx专栏/Linux-安装Maven.md)
 
 ### 全局工具配置
 
@@ -303,7 +303,7 @@ cat id_rsa.pub
 
 ## 集成Tomcat
 
-> 下载好Tomcat的，并且解压到liunx上
+> 下载好Tomcat的，并且解压到Linux上
 
 ![image-20220127194753051](./images/image-20220127194753051.png)
 

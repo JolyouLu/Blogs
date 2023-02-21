@@ -184,7 +184,7 @@ eureka:
 
 > Zookeeper做为SpringCloud的注册中心目的是为了让一些交旧的dubbo项目以最少的成本从RPC转微服务，也可以减少转微服务的学习成本，在使用Zookeeper作为注册中心那么需要一些预备知识，Zookeeper安装与部署
 
-预备知识：[Zookeeper-快速入门(服务安装、单机部署、集群部署)](https://blog.csdn.net/weixin_44642403/article/details/115985332)
+预备知识：[Zookeeper-快速入门(服务安装、单机部署、集群部署)](../分布式框架专栏/Zookeeper-快速入门.md)
 
 ### 提供者注册到ZK
 

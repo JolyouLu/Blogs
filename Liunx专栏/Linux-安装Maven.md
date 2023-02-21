@@ -1,14 +1,14 @@
 # 安装Maven
-在安装Maven需要有一定的Liunx知识，小伙伴可以通过我以下2篇博客学习到一下liunx的基础知识
-[VM虚拟机安装Liunx](https://blog.csdn.net/weixin_44642403/article/details/103437742)
-[Liunx基础命令](https://blog.csdn.net/weixin_44642403/article/details/103437860)
+在安装Maven需要有一定的Linux知识，小伙伴可以通过我以下2篇博客学习到一下Linux的基础知识
+[VM虚拟机安装Linux](VMware-克隆虚拟机.md)
+[Linux基础命令](Linux-安装和常用命令.md)
 
 ## 安装包下载
-https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+`https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz`
 
 ## Maven的安装
 ### 上传安装包
-将安装包上传到liunx中
+将安装包上传到Linux中
 ![image-20220127182022124](./images/image-20220127182022124.png)
 
 ### 解压安装包
@@ -47,7 +47,7 @@ tar -zxvf apache-maven-3.8.4-bin.tar.gz
 ### 配置环境变量
 
 ~~~shell
-#编辑liunx环境变量
+#编辑Linux环境变量
 vim /etc/profile
 ~~~
 

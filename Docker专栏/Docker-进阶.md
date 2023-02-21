@@ -325,7 +325,7 @@ docker run -d -p 9090:8080 --name diytomcat -v /home/tomcat/webapps/test:/usr/lo
 
 #### 账号注册
 
-[点击此处注册DockerHub账号]: https://hub.docker.com/signup
+注册DockerHub账号: `https://hub.docker.com/signup`
 
 ![image-20210509204552815](./images/image-20210509204552815.png)
 

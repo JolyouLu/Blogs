@@ -59,7 +59,7 @@ G1收集器日志比较复杂，我只标记了我了解的部分
 
 在实际应用中调优一般是使用可视化工具的，gceasy是一个在线GC调优的网站，使用很简单只需要上传你本地的gc日志，就会生成相应的图表，分析你的JVM的GC情况
 
-gceasy：https://gceasy.io/
+gceasy：`https://gceasy.io/`
 
 ![image-20200719173727031](./images/image-20200719173727031.png)
 

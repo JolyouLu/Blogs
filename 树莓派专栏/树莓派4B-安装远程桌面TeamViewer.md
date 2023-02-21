@@ -1,7 +1,7 @@
 ﻿﻿# 树莓派安装远程桌面TeamViewer
 TeamViewer远程连接可以让你的树莓派不局限于你的局域网，只要有网络的地方都可以连接上，安装和使用也比较简单快捷，相比树莓派自带的VNC Viewer用起来比较方便
 ## 下载TeamViewer
-[TeamViewer下载地址](https://www.teamviewer.cn/cn/download/raspberry-pi/)，这里我们选择树莓派点击下载
+TeamViewer下载地址:`https://www.teamviewer.cn/cn/download/raspberry-pi/`，这里我们选择树莓派点击下载
 ![在这里插入图片描述](./images/20210211211222134.png)
 下载完毕后我们可以看到Downloads文件夹中有一个.deb结尾的文件
 ![在这里插入图片描述](./images/2021021121134662.png)
@@ -27,7 +27,7 @@ sudo apt-get install -f
 ![在这里插入图片描述](./images/20210211212412903.png)
 
 ## Win使用TeamViewer连接树莓派
-当然在Windows也要安装一个TeamViewer，Windows安装软件我就不多说了把下载[TeamViewer Win版](https://www.teamviewer.cn/cn/download/windows/)一股脑点下一步，然后该注册的注册，该登录的登录，最后打开它**在伙伴ID输入树莓派上TeamViewer的ID点击连接**
+当然在Windows也要安装一个TeamViewer，Windows安装软件我就不多说了把下载 TeamViewer Win版:`https://www.teamviewer.cn/cn/download/windows/`一股脑点下一步，然后该注册的注册，该登录的登录，最后打开它**在伙伴ID输入树莓派上TeamViewer的ID点击连接**
 ![在这里插入图片描述](./images/20210211212833970.png)
 成功连接
 ![在这里插入图片描述](./images/20210211213024698.png)

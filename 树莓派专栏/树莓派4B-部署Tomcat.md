@@ -2,11 +2,11 @@
 ## 前言
 >部署Tomcat之前，先在命令行中输入`java -version`，查看是否已经安装环境变量，如果有版本信息打印表示已有java环境，请跳到下载tomcat
 >
-如果没安装java请先看这篇文章 [树莓派4B-安装JAVA(OpenJDK与Oracle Java)](https://blog.csdn.net/weixin_44642403/article/details/113792130)
+如果没安装java请先看这篇文章 [树莓派4B-安装JAVA(OpenJDK与Oracle Java)](树莓派4B-安装JAVA(OpenJDK与Oracle%20Java).md)
 ![在这里插入图片描述](./images/2021031013415520.png)
 
 ## 下载Tomcat
-[Tomcat](https://tomcat.apache.org/download-80.cgi)下载地址，进入页面滑下去找到Cor下的tar.gz点击下载
+下载地址 `https://tomcat.apache.org/download-80.cgi`，进入页面滑下去找到Cor下的tar.gz点击下载
 ![在这里插入图片描述](./images/20210310133956850.png)
 
 ## 解压压缩包

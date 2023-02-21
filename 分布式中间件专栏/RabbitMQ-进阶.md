@@ -6,11 +6,11 @@
 
 > SpringBoot集成RabbitMQ，常用案例
 
-[SpringBoot-集成RabbitMQ](https://blog.csdn.net/weixin_44642403/article/details/121016644)
+[SpringBoot-集成RabbitMQ](../SpringBoot专栏/SpringBoot-集成RabbitMQ.md)
 
 ## RabbitMQ集群部署
 
-[Liunx-RabbitMQ集群部署](https://blog.csdn.net/weixin_44642403/article/details/121017230)
+[Linux-RabbitMQ集群部署](../分布式中间件专栏/Liunx-RabbitMQ集群部署.md)
 
 ## 镜像队列
 

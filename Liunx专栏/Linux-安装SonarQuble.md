@@ -6,13 +6,13 @@
 
 > mysql：SonarQuble安装需要mysql数据，因为SonarQuble会将代码审查结果保存到mysql种
 >
-> unzip：由于SonarQuble安装包是zip，需要使用unzip命令解压，在liunx执行`yum install unzip`安装unzip
+> unzip：由于SonarQuble安装包是zip，需要使用unzip命令解压，在Linux执行`yum install unzip`安装unzip
 >
 > jdk：SonarQuble的运行需要jdk环境
 
-[Liunx-安装mysql数据库](https://blog.csdn.net/weixin_44642403/article/details/103588336)
+[Linux-安装mysql数据库](Linux-安装mysql数据库.md)
 
-[Liunx-安装JDK](https://blog.csdn.net/weixin_44642403/article/details/104862775)
+[Linux-安装JDK](Linux-安装JDK.md)
 
 **新建数据库**
 
@@ -22,7 +22,7 @@
 
 > 官方地址：https://www.sonarqube.org/downloads/
 >
-> 进入到官方下载页面下载社区版即可，下载完毕后将压缩包上传到liunx服务器上，滑倒最下面可以下载其他版本，下载最新版jdk可能不适配所以我下载的是`6.7.7`
+> 进入到官方下载页面下载社区版即可，下载完毕后将压缩包上传到Linux服务器上，滑倒最下面可以下载其他版本，下载最新版jdk可能不适配所以我下载的是`6.7.7`
 
 ![image-20220131162017894](./images/image-20220131162017894.png)
 
@@ -115,7 +115,7 @@ cd bin/linux-x86-64/
 
 ### 手动安装
 
-> 从[gitHub](https://github.com/xuhuisheng/sonar-l10n-zh)下载对应的中文包
+> 从gitHub下载对应的中文包：`https://github.com/xuhuisheng/sonar-l10n-zh`
 
 ![image-20220131165050638](./images/image-20220131165050638.png)
 

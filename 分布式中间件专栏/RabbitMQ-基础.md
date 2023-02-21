@@ -32,9 +32,9 @@
 
 ## 单机/集群部署
 
-文章：[Liunx-RabbitMQ单机部署]()
+文章：[Linux-RabbitMQ单机部署](../分布式中间件专栏/Liunx-RabbitMQ单机部署.md)
 
-文章：[Liunx-RabbitMQ集群部署](https://blog.csdn.net/weixin_44642403/article/details/121017230)
+文章：[Linux-RabbitMQ集群部署](../分布式中间件专栏/Liunx-RabbitMQ集群部署.md)
 
 ## 六大模式
 

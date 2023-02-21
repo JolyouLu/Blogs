@@ -32,9 +32,9 @@
 
 ## 单机/集群部署
 
-[Liunx-Kafka单机部署](https://blog.csdn.net/weixin_44642403/article/details/125699046)
+[Linux-Kafka单机部署](../分布式中间件专栏/Liunx-Kafka单机部署.md)
 
-[Liunx-Kafka集群部署](https://blog.csdn.net/weixin_44642403/article/details/125699092)
+[Linux-Kafka集群部署](../分布式中间件专栏/Liunx-Kafka集群部署.md)
 
 ## 脚本使用
 
@@ -267,7 +267,7 @@ properties.put(ProducerConfig.COMPRESSION_TYPE_CONFIG,"snappy");
 
 ### Zk中的kafka信息
 
-> 这里给大家推荐一个ZK可视化工具[PrettyZoo](https://github.com/vran-dev/PrettyZoo/releases)，这个工具使用很简单
+> 这里给大家推荐一个ZK可视化工具 PrettyZoo`https://github.com/vran-dev/PrettyZoo/releases`，这个工具使用很简单
 
 | 路径                                           | 说明                                  |
 | ---------------------------------------------- | ------------------------------------- |

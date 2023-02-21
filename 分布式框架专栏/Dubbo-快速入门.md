@@ -207,7 +207,7 @@
 
 ### 常用标签说明
 
-> 这里只列举了常用的，详细标签说明请阅读[dubbo官方文档](https://dubbo.apache.org/zh/docs/v2.7/user/configuration/xml/)
+> 这里只列举了常用的，详细标签说明请阅读dubbo官方文档`https://dubbo.apache.org/zh/docs/v2.7/user/configuration/xml/`
 
 | 标签                  | 用途 | 说明                                                         |
 | --------------------- | ---- | ------------------------------------------------------------ |

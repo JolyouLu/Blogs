@@ -2,7 +2,7 @@
 
 **前置环境**
 
-> 使用RabbitMQ那么需要准备Erlang环境才能运行，通过[Erlang安装包下载](https://packagecloud.io/rabbitmq/erlang/packages/el/8/erlang-24.1-1.el8.x86_64.rpm)下载对应的rpm包，并且拷贝到liunx上
+> 使用RabbitMQ那么需要准备Erlang环境才能运行，通过 Erlang安装包下载：`https://packagecloud.io/rabbitmq/erlang/packages/el/8/erlang-24.1-1.el8.x86_64.rpm` 下载对应的rpm包，并且拷贝到Linux上
 
 ![image-20211019210407310](./images/image-20211019210407310.png)
 
@@ -22,9 +22,9 @@ sudo yum install erlang-23.2.1-1.el7.x86_64
 
 **安装包下载**
 
-> 进入到[RabbitMQ](https://github.com/rabbitmq/rabbitmq-server)官方Github，下载RocketMQ安装包
+> 进入到RabbitMQ：`https://github.com/rabbitmq/rabbitmq-server`官方Github，下载RocketMQ安装包
 >
-> 也可直接在Liunx上执行wget` https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.7/rabbitmq-server-3.9.7-1.el8.noarch.rpm`获取压缩包
+> 也可直接在Linux上执行wget` https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.7/rabbitmq-server-3.9.7-1.el8.noarch.rpm`获取压缩包
 
 ![](./images/image-20211019204617320.png)
 

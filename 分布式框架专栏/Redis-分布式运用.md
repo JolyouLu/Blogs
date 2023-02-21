@@ -2,11 +2,11 @@
 
 ## 基础入门
 
-> Redis的基础由于之前已经发布过文章了，所以在本专栏就不说， 不过大家可以通过阅读以下文章进行学习，`Redis常用命令是重点，虽然里面将的都是LIunx命令，当是在实际开发过程中只是将来这些Liunx命令封装成方法而且所以重复理解这些命令后学习学习任何工具类都易如反掌`
+> Redis的基础由于之前已经发布过文章了，所以在本专栏就不说， 不过大家可以通过阅读以下文章进行学习，`Redis常用命令是重点，虽然里面将的都是Linux命令，当是在实际开发过程中只是将来这些Linux命令封装成方法而且所以重复理解这些命令后学习学习任何工具类都易如反掌`
 
-[Liunx-安装Redis](https://blog.csdn.net/weixin_44642403/article/details/109539410)
+[Linux-安装Redis](../Redis专栏/Linux-安装Redis.md)
 
-[Liunx-Redis常用命令手册](https://blog.csdn.net/weixin_44642403/article/details/109538441)
+[Linux-Redis常用命令手册](../Redis专栏/Liunx-RedisCli常用命令手册.md)
 
 ## Redis的单线程和高性能
 
@@ -22,7 +22,7 @@
 
 > Redis持久化分2种RDB与AOR，并且已写好了文章了，这里就不重复说明了，直接贴出文章连接
 
-[Redis持久化](https://blog.csdn.net/weixin_44642403/article/details/110692444)
+[Redis持久化](../Redis专栏/Redis持久化.md)
 
 ## Redis缓存淘汰策略
 
@@ -54,13 +54,13 @@ maxmemory <bytes>
 
 > Redis可利用哨兵模式保证Redis高可用以及主备热切换，哨兵模式下Redis永远只有一个Master由于Redis是单线程，所以单台Redis理论最多10W，如果需要更大的并发那么哨兵模式已经无法满足了
 
-[主从复制、哨兵模式](https://blog.csdn.net/weixin_44642403/article/details/110692692)
+[主从复制、哨兵模式](../Redis专栏/Redis主从复制.md)
 
 ### 高可用集群模式
 
 > 关于Redis集群的搭建，节点的配置，槽的分配，我另外独立编写了一篇文章说明，可以点击进入阅读该文章
 
-[Redis-集群搭建](https://blog.csdn.net/weixin_44642403/article/details/118885921?spm=1001.2014.3001.5502)
+[Redis-集群搭建](../Redis专栏/Redis集群搭建.md)
 
 ### Hash槽
 

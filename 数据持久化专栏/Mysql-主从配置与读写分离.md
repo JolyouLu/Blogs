@@ -24,21 +24,21 @@
 
 ### 前期准备
 
-> 这里主要将Liunx上的Mysql主从配置，Win也是一样的套路
+> 这里主要将Linux上的Mysql主从配置，Win也是一样的套路
 >
-> 首先准备好2台Liunx，并且都使用自定义的方式安装好Mysql，如果不知道如何自定义安装请阅读以下博客
+> 首先准备好2台Linux，并且都使用自定义的方式安装好Mysql，如果不知道如何自定义安装请阅读以下博客
 
-[Liunx-安装mysql数据库](https://blog.csdn.net/weixin_44642403/article/details/103588336)
+[Linux-安装mysql数据库](../数据持久化专栏/Liunx-安装mysql数据库.md)
 
-[Win10安装Mysql步骤及注意事项](https://blog.csdn.net/weixin_44642403/article/details/106744487)
+[Win10安装Mysql步骤及注意事项](../数据持久化专栏/Win10安装Mysql步骤及注意事项.md)
 
-> 如果有2台Liunx服务器的请跳过这个步骤，直接看修改配置文件
+> 如果有2台Linux服务器的请跳过这个步骤，直接看修改配置文件
 >
-> 如果没用的小伙伴也不要灰心附上Win电脑VMware虚拟机的使用，Liunx安装，VMware主机NAT网络搭建教程
+> 如果没用的小伙伴也不要灰心附上Win电脑VMware虚拟机的使用，Linux安装，VMware主机NAT网络搭建教程
 
-[Win10-VMware Liunx安装](https://blog.csdn.net/weixin_44642403/article/details/103437742)
+[Win10-VMware Linux安装](../Liunx专栏/VMware-安装Liunx.md)
 
-[Win10-VMware网络配置NAT模式](https://blog.csdn.net/weixin_44642403/article/details/114282780)
+[Win10-VMware网络配置NAT模式](../Liunx专栏/Win10-VMware网络配置NAT模式.md)
 
 ### 修改配置文件
 

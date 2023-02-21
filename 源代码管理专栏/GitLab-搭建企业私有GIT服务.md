@@ -32,7 +32,7 @@ firewall-cmd --reload
 
 > 离线安装方式(可指定版本)：
 >
-> 首先需要下载一个gitlab-ce安装包[ce版本rpm包镜像下载地址](https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/)
+> 首先需要下载一个gitlab-ce安装包 ce版本rpm包镜像下载地址:`https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/`
 
 ~~~shell
 #下载安装包(如果该链接)

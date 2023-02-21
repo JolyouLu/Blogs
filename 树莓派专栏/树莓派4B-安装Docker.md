@@ -1,5 +1,5 @@
 ﻿﻿# 树莓派4B-安装Docker
-在Docker官网[安装教程](https://docs.docker.com/engine/install/debian/)已经说明，树莓派安装Docker只能使用脚本安装方式，所以接下来介绍的是使用脚本的方式在树莓派中安装Docker
+在Docker官网安装教程：`https://docs.docker.com/engine/install/debian/`已经说明，树莓派安装Docker只能使用脚本安装方式，所以接下来介绍的是使用脚本的方式在树莓派中安装Docker
 ![在这里插入图片描述](./images/2021022418424342.png)
 
 ## Docker安装

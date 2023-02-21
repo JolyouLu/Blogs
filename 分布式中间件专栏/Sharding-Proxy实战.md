@@ -15,7 +15,7 @@
 
 ### 安装包下载
 
-> 这里我下载4.0.1的版本，[Sharding-Proxy下载地址](https://shardingsphere.apache.org/document/legacy/4.x/document/cn/downloads/)
+> 这里我下载4.0.1的版本，Sharding-Proxy下载地址`https://shardingsphere.apache.org/document/legacy/4.x/document/cn/downloads/`
 
 ![image-20210829221821164](./images/image-20210829221821164.png)
 
@@ -23,7 +23,7 @@
 
 ### 解压安装包
 
-> 使用命令解压压缩包，解压压缩包后进入到bin目录可以看到有几个启动脚本win下使用bat脚本，liunx使用sh脚本即可
+> 使用命令解压压缩包，解压压缩包后进入到bin目录可以看到有几个启动脚本win下使用bat脚本，Linux使用sh脚本即可
 
 ~~~shell
 # tar命令解压压缩包
@@ -64,7 +64,7 @@ tar -xvf apache-shardingsphere-incubating-4.0.1-sharding-proxy-bin.tar.gz
 
 ### 服务启动
 
-> 执行`start.bat `服务启动(liunx下执行sh文件)有2种方式带端口和不带端口
+> 执行`start.bat `服务启动(Linux下执行sh文件)有2种方式带端口和不带端口
 >
 > 1. 不带端口：默认使用3307端口
 > 2. 带端口：使用你指定的端口 `start.bat 8888`
@@ -101,7 +101,7 @@ tar -xvf apache-shardingsphere-incubating-4.0.1-sharding-proxy-bin.tar.gz
 
 ### 服务启动
 
-> 执行`start.bat `服务启动(liunx下执行sh文件)有2种方式带端口和不带端口
+> 执行`start.bat `服务启动(Linux下执行sh文件)有2种方式带端口和不带端口
 >
 > 1. 不带端口：默认使用3307端口
 > 2. 带端口：使用你指定的端口 `start.bat 8888`
@@ -134,7 +134,7 @@ tar -xvf apache-shardingsphere-incubating-4.0.1-sharding-proxy-bin.tar.gz
 >
 > Sharding-Proxy是不做主从复制数据同步的，主从复制需要通过配置Mysql实现，而Sharding-Proxy只是根据语义(CRUD)判断你是做增删改查的那种操作，并且给你路由到主库/从库
 
-[Mysql-主从配置与读写分离](https://blog.csdn.net/weixin_44642403/article/details/119984259)
+[Mysql-主从配置与读写分离](../数据持久化专栏/Mysql-主从配置与读写分离.md)
 
 ### 修改config-master_slave.yaml
 
@@ -144,7 +144,7 @@ tar -xvf apache-shardingsphere-incubating-4.0.1-sharding-proxy-bin.tar.gz
 
 ### 服务启动
 
-> 执行`start.bat `服务启动(liunx下执行sh文件)有2种方式带端口和不带端口
+> 执行`start.bat `服务启动(Linux下执行sh文件)有2种方式带端口和不带端口
 >
 > 1. 不带端口：默认使用3307端口
 > 2. 带端口：使用你指定的端口 `start.bat 8888`

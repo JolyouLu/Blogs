@@ -72,9 +72,9 @@ mapping可以在处理时间的方式和规则方面做一些限制，如某个�
 
 ### ES集群安装与部署
 
-[Liunx-Elasticsearch单机与集群部署](https://blog.csdn.net/weixin_44642403/article/details/119988003)
+[Linux-Elasticsearch单机与集群部署](Liunx-Elasticsearch单机集群部署.md)
 
-[Win-Elasticsearch单机与集群部署](https://blog.csdn.net/weixin_44642403/article/details/120066286)
+[Win-Elasticsearch单机与集群部署](Win-Elasticsearch单机集群部署.md)
 
 ### ES集群健康插件
 

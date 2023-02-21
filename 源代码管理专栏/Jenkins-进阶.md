@@ -14,7 +14,7 @@
 
 ### SonarQuble安装
 
-[Liunx-安装SonarQuble](https://blog.csdn.net/weixin_44642403/article/details/122760681?spm=1001.2014.3001.5502)
+[Linux-安装SonarQuble](../Liunx专栏/Linux-安装SonarQuble.md)
 
 ### jenkins插件安装
 
@@ -24,7 +24,7 @@
 
 ### SonarQube Scanner安装
 
-> 如果电脑未安装`SonarQube Scanner`那么在liunx安装上，如果已经按照了跳过该步骤，这里演示是使用Jenkins的自动安装，进入到`jenkins -> Manage Jenkins -> Global Tool Configuration`，找到SonarQube Scanner选项，选择一个版本让Jenkins自动安装
+> 如果电脑未安装`SonarQube Scanner`那么在Linux安装上，如果已经按照了跳过该步骤，这里演示是使用Jenkins的自动安装，进入到`jenkins -> Manage Jenkins -> Global Tool Configuration`，找到SonarQube Scanner选项，选择一个版本让Jenkins自动安装
 
 ![image-20220131173744091](./images/image-20220131173744091.png)
 
@@ -123,11 +123,11 @@ sonar.sourceEncoding=UTF-8
 
 ### Docker安装
 
-> Docker安装请阅读`Liunx-安装Docker`，如果需要学习如何使用docker那么请阅读`Docker专栏`
+> Docker安装请阅读`Linux-安装Docker`，如果需要学习如何使用docker那么请阅读`Docker专栏`
 
-[Liunx-安装Docker](https://blog.csdn.net/weixin_44642403/article/details/114265278)
+[Linux-安装Docker](../Docker专栏/Liunx-安装Docker.md)
 
-[Docker专栏](https://blog.csdn.net/weixin_44642403/category_11030715.html?spm=1001.2014.3001.5482)
+[Docker专栏](../Docker专栏)
 
 ### 容器镜像仓库
 

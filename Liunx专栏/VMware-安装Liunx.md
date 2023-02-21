@@ -1,4 +1,4 @@
-# Liunx安装和基础配置
+# Linux安装和基础配置
 
 centos OS 7 镜像下载 https://wiki.centos.org/Download 
 
@@ -14,7 +14,7 @@ centos OS 7 镜像下载 https://wiki.centos.org/Download
 
 ![image-20191203190255373](./images/image-20191203190255373.png)
 
-我们下载的是OS 7 我们也选Liunx OS64
+我们下载的是OS 7 我们也选Linux OS64
 
 ![image-20191203190320041](./images/image-20191203190320041.png)
 
@@ -54,7 +54,7 @@ centos OS 7 镜像下载 https://wiki.centos.org/Download
 
 ![image-20191203191126071](./images/image-20191203191126071.png)
 
-双击CD/DVD 设置 iso 镜像文件 安装liunx
+双击CD/DVD 设置 iso 镜像文件 安装Linux
 
 ![image-20191203191231038](./images/image-20191203191231038.png)
 
@@ -84,5 +84,5 @@ centos OS 7 镜像下载 https://wiki.centos.org/Download
 
 ![image-20191203194333944](./images/image-20191203194333944.png)
 
-安装完成后重启就完成安装了 Liunx基础配置请查看小白架构师成长之路7
+安装完成后重启就完成安装了 Linux基础配置请查看小白架构师成长之路7
 

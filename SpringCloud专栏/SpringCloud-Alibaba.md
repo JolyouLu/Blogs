@@ -235,7 +235,7 @@
 
 > 在生产环境下Nacos必然是集群模式的，接下来就演示Nacos如何搭建集群模式，通过官方说明需要看出Nacos的集群需要配合nginx与mysql
 >
-> [官方文档](https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html)
+> 官方文档`https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html`
 
 ![image-20220123212509203](./images/image-20220123212509203.png)
 
@@ -263,7 +263,7 @@
 
 ![image-20220123215321769](./images/image-20220123215321769.png)
 
-#### Liunx-Nacos集群搭建
+#### Linux-Nacos集群搭建
 
 > 了解了Nacos集群基础后，接下来那么就可以开始搭建Nacos集群
 
@@ -516,7 +516,7 @@
 
 | 配置项    | 说明                                                         |
 | --------- | ------------------------------------------------------------ |
-| LOAD      | 该配置只对Liunx/Unix-like机器生效，系统的load1作为启发指标，进行自适应系统保护，设定参考值一般是 CPU核心数量*2.5 |
+| LOAD      | 该配置只对Linux/Unix-like机器生效，系统的load1作为启发指标，进行自适应系统保护，设定参考值一般是 CPU核心数量*2.5 |
 | RT        | 当单台机器上所有入口流量的平均RT达到阈值触发保护             |
 | 线程数    | 当单台机器上所有入口的并发线程数达到阈值时触发保护           |
 | 入口QPS   | 当单台机器上所有入口流量的QPS达到阈值时触发保护              |
@@ -608,7 +608,7 @@
 
 #### 持久化到Nacos
 
-> 持久化到Nacos是其中一种，并不代表Sentinel只能持久化到Nacos中，也可以持久化其他组件上[参考官方文档](https://sentinelguard.io/zh-cn/docs/dynamic-rule-configuration.html)，因为Nacos是配套必须组件所有这里只讲解持久化到Nacos中就行了
+> 持久化到Nacos是其中一种，并不代表Sentinel只能持久化到Nacos中，也可以持久化其他组件上参考官方文档`https://sentinelguard.io/zh-cn/docs/dynamic-rule-configuration.html`，因为Nacos是配套必须组件所有这里只讲解持久化到Nacos中就行了
 
 **添加依赖**
 
@@ -695,7 +695,7 @@
 
 #### 下载安装包
 
-> 通过github可以下载Seata，win下载zip包，liunx下载tag包，下载完毕后解压安装包
+> 通过github可以下载Seata，win下载zip包，Linux下载tag包，下载完毕后解压安装包
 >
 > 下载地址：https://github.com/seata/seata/releases
 

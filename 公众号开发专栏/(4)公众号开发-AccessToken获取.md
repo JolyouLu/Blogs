@@ -6,7 +6,7 @@
 
 > AccessToken是与微信服务器交互的令牌，AccessToken特点每过2小时会失效，需重新去微信服务器获取AccessToken
 >
-> 这里是微信公众平台官方文档：[获取Access token](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html)
+> 这里是微信公众平台官方文档：获取Access token`https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html`
 
 ## 流程说明
 

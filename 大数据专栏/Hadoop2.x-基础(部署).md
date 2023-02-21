@@ -151,7 +151,7 @@ java -version
 
 ### Hadoop2.x安装
 
-> 这里使用的Hadoop2.7.2，[下载地址](https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/)
+> 这里使用的Hadoop2.7.2，下载地址`https://archive.apache.org/dist/hadoop/common/hadoop-2.7.2/`
 
 ~~~shell
 #将hadoop解压到指定的目录

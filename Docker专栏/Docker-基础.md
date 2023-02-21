@@ -11,7 +11,7 @@ docker info
 docker 命令 --help
 ~~~
 
-[docker命令官方文档]: https://docs.docker.com/reference/
+docker命令官方文档: `https://docs.docker.com/reference/`
 
 ## 镜像命令
 
@@ -166,9 +166,9 @@ UnioFS文件系统，是一种分层，轻量级并且高性能的文件系统�
 
 docker的镜像事件是一层一层的文件系统注册，这种层级文件系统UnioFS
 
-bootfs（boot file system）主要包含bootload和kernel，bootloader主要是引导加载kernel，liunx刚启动时会加载botfs文件系统，docker镜像最底层就是bootfs，这一层与典型的Liunx/Unix系统是一样的，包含boot加载器和内核，当boot加载完成后整个内核都再内存中了，这时系统会卸载了bootfs，将内存使用权交给内核
+bootfs（boot file system）主要包含bootload和kernel，bootloader主要是引导加载kernel，Linux刚启动时会加载botfs文件系统，docker镜像最底层就是bootfs，这一层与典型的Linux/Unix系统是一样的，包含boot加载器和内核，当boot加载完成后整个内核都再内存中了，这时系统会卸载了bootfs，将内存使用权交给内核
 
-rootfs（foot file system），再bootfs上，包含的就是进行的liunx系统中的/dev,/proc,/bin等标准目录文件，rootfs就是各种不同的操作系统的发行版
+rootfs（foot file system），再bootfs上，包含的就是进行的Linux系统中的/dev,/proc,/bin等标准目录文件，rootfs就是各种不同的操作系统的发行版
 
 ![image-20210504122051011](./images/image-20210504122051011.png)
 
@@ -200,7 +200,7 @@ docker commit -m="提交描述" -a="作者" 容器id 目标镜像名:[TAG]
 
 ### 什么是容器数据卷
 
-> 经过前面的实例练习，我们找到docker的应用是运行在容器中的，这就会产生一个问题比如我们运行着一个mysql容器那么我们的，表与数据会被保存在容器中，如果一不小心错删容器那么mysql连着mysql的数据都会丢失（删库跑路），这时就需要一个mysql数据可以存在在liunx本地而不是容器的解决方案`容器数据卷就能解决该问题，可以让容器产生的数据同步到liunx本地中`其实原理就是将容器的目录挂载到liunx中
+> 经过前面的实例练习，我们找到docker的应用是运行在容器中的，这就会产生一个问题比如我们运行着一个mysql容器那么我们的，表与数据会被保存在容器中，如果一不小心错删容器那么mysql连着mysql的数据都会丢失（删库跑路），这时就需要一个mysql数据可以存在在Linux本地而不是容器的解决方案`容器数据卷就能解决该问题，可以让容器产生的数据同步到Linux本地中`其实原理就是将容器的目录挂载到Linux中
 
 ![image-20210504133618247](./images/image-20210504133618247.png)
 

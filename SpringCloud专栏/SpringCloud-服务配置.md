@@ -132,15 +132,15 @@
 >
 > 若对消息队列不是很了解的可以先阅读我写的消息队列博客哦
 >
-> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](https://blog.csdn.net/weixin_44642403/article/details/120931674)
+> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](../分布式中间件专栏/RabbitMQ-基础.md)
 >
-> [RabbitMQ-进阶(镜像队列、负载均衡、联邦插件)](https://blog.csdn.net/weixin_44642403/article/details/121017327)
+> [RabbitMQ-进阶(镜像队列、负载均衡、联邦插件)](../分布式中间件专栏/RabbitMQ-进阶.md)
 
 ### 安装RabbitMQ
 
 > 首先需要安装一个RabbitMQ，若未安装可以阅读以下博客
 >
-> [Liunx-RabbitMQ单机部署](https://blog.csdn.net/weixin_44642403/article/details/120931857)
+> [Linux-RabbitMQ单机部署](../分布式中间件专栏/Liunx-RabbitMQ单机部署.md)
 
 ### 动态更新工作流程
 

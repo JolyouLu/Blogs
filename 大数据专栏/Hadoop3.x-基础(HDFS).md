@@ -723,7 +723,7 @@ sbin/start-dfs.sh
 >
 > 并且为该节点配上hdfs相关配置
 >
-> [Hadoop2.x-基础](https://blog.csdn.net/weixin_44642403/article/details/126217437)
+> [Hadoop3.x-基础](Haddop3.x-基础(部署).md)
 
 **启动节点**
 

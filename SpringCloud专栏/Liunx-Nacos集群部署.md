@@ -1,4 +1,4 @@
-# Liunx-Nacos集群部署
+# Linux-Nacos集群部署
 
 > 我们安装1nginx+3Nacos+1mysql的方式完成Nacos的集群部署
 
@@ -6,7 +6,7 @@
 
 ## 安装包下载
 
-> 进入到Nacos的git仓库下载`nacos-server-1.3.0.tar.gz`安装包，并且将安装包拷贝到Liunx中，并且使用tar目录将安装包解压
+> 进入到Nacos的git仓库下载`nacos-server-1.3.0.tar.gz`安装包，并且将安装包拷贝到Linux中，并且使用tar目录将安装包解压
 >
 > 下载地址：https://github.com/alibaba/nacos/releases/download/1.3.0/nacos-server-1.3.0.tar.gz
 

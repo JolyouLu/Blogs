@@ -2,11 +2,11 @@
 
 > 在连接Redis集群搭建之前首先具备的前置知识有Redis的安装，Redis持久化，Redis主从复制，若还没了解都可以通过阅读以下文章了解以下
 
-[Liunx-安装Redis](https://blog.csdn.net/weixin_44642403/article/details/109539410)
+[Linux-安装Redis](Linux-安装Redis.md)
 
-[Redis-主从复制(一主二从、主从复制原理、单哨兵模式、多哨兵模式)](https://blog.csdn.net/weixin_44642403/article/details/110692692)
+[Redis-主从复制(一主二从、主从复制原理、单哨兵模式、多哨兵模式)](Redis主从复制.md)
 
-[Redis-持久化(RDB配置、RDB原理、AOF配置、AOF原理、混合持久化配置)](https://blog.csdn.net/weixin_44642403/article/details/110692444)
+[Redis-持久化(RDB配置、RDB原理、AOF配置、AOF原理、混合持久化配置)](Redis持久化.md)
 
 ## 高可用集群
 
@@ -24,7 +24,7 @@
 
 > 这里我演示搭建的是一个3主3从的Redis集群
 >
-> 首先需要准备3台Liunx，并且在3台Liunx上都安装了Redis
+> 首先需要准备3台Linux，并且在3台Linux上都安装了Redis
 
 ![image-20210718194500994](./images/image-20210718191404268.png)
 
@@ -118,7 +118,7 @@ CLUSTER NODES
 
 #### 服务启动
 
-> 我们对当前的3主3从进行扩容成4主4从，首先在准备多一台Liunx，并且在上面安装好Redis配置好2个Redis服务的配置文件，并且启动2个服务
+> 我们对当前的3主3从进行扩容成4主4从，首先在准备多一台Linux，并且在上面安装好Redis配置好2个Redis服务的配置文件，并且启动2个服务
 
 ![image-20210718222740008](./images/image-20210718222740008.png)
 

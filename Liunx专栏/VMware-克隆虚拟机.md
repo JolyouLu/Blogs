@@ -64,7 +64,7 @@ HOSTNAME=hadoop51(你的主机名称)
 
 ## 修改hosts文件
 
-> 在部署集群项目时需要修改liunx的hosts文件，这样可以通过域名访问集群内的集群
+> 在部署集群项目时需要修改Linux的hosts文件，这样可以通过域名访问集群内的集群
 
 ~~~shell
 #修改hosts文件

@@ -126,7 +126,7 @@
 
 ### 内置分析器
 
-> ES附带了一些可直接使用的预包装分析器，以下列出几个比较注意的分析器，测试分析器的分词效果可以通过`GET`请求`/_analyze`请求测试，具体说明可以查看[官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/analysis.html)
+> ES附带了一些可直接使用的预包装分析器，以下列出几个比较注意的分析器，测试分析器的分词效果可以通过`GET`请求`/_analyze`请求测试，具体说明可以查看官方文档`https://www.elastic.co/guide/en/elasticsearch/reference/6.0/analysis.html`
 
 ### 分析器测试
 
@@ -136,7 +136,7 @@
 
 ### IK中文分析器
 
-> 前面之所以不介绍ES的内置分析器，那是因为ES提供的分析器并不适合中文分词，一般如果使用中文全文检索，那么需要指定分析器，这里我使用一款IK分析器，[下载地址(下载于ES相同的版本)](https://github.com/medcl/elasticsearch-analysis-ik/releases)
+> 前面之所以不介绍ES的内置分析器，那是因为ES提供的分析器并不适合中文分词，一般如果使用中文全文检索，那么需要指定分析器，这里我使用一款IK分析器，下载地址(下载于ES相同的版本)`https://github.com/medcl/elasticsearch-analysis-ik/releases`
 >
 > 指定分析器的步骤非常简单，下载分析器后将解压的文件夹丢到ES的plugins中重启ES即可
 

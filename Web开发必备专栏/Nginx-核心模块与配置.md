@@ -8,7 +8,7 @@ Nginx是一个高性能的WEB服务器，除了Nginx还有很多WEB服务器，�
 
 ### 检查安装环境
 
-需要Liunx内核2.6以上版本才支持epool才能正常使用使用Nginx
+需要Linux内核2.6以上版本才支持epool才能正常使用使用Nginx
 
 ~~~shell
 uname -a
@@ -17,7 +17,7 @@ uname -a
 
 ### 安装nginx 环境
 
-Liunx内核版本达到要求后我们需要安装一些相应的环境才能运行nginx
+Linux内核版本达到要求后我们需要安装一些相应的环境才能运行nginx
 
 1. GCC编译器：Nginx不提供二进制可执行文件，所以使用前我们需要使用要GCC来编译C语言程序
 2. PCRE库：RCRE库是正则表达式的支持，在Nginx中很多地方可以使用到正则表达式

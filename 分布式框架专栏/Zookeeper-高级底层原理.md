@@ -4,7 +4,7 @@
 
 ### 查找启动类
 
-> 要想了解一个应用的原理，那么我们首先要知道这个应用的启动类Main方法再那，Zookeeper的启动再Liunx是通过`zkServer.sh`脚本启动的，几乎所有JAVA编写的服务启动脚本通过`vim zkServer.sh`可以再里面找到一个ZOOMAIN参数这个就是服务启动会调用的Main方法
+> 要想了解一个应用的原理，那么我们首先要知道这个应用的启动类Main方法再那，Zookeeper的启动再Linux是通过`zkServer.sh`脚本启动的，几乎所有JAVA编写的服务启动脚本通过`vim zkServer.sh`可以再里面找到一个ZOOMAIN参数这个就是服务启动会调用的Main方法
 
 ![image-20210626124149389](./images/image-20210626124149389.png)
 
@@ -147,7 +147,7 @@
 
 ### CAP原则
 
->  CAP(一致性、可用性、分区容错性)与ACID最大的区别是mysql在单机情况下可以保证ACID所有特性，但是在分布式情况下的CAP是不能保证所有特性，由于C(一致性)与P(容错性)是相互冲突的2种特性，最终的只能CA、CP、AP，百度百科说明：[CAP原则](https://baike.baidu.com/item/CAP%E5%8E%9F%E5%88%99/5712863?fr=aladdin)
+>  CAP(一致性、可用性、分区容错性)与ACID最大的区别是mysql在单机情况下可以保证ACID所有特性，但是在分布式情况下的CAP是不能保证所有特性，由于C(一致性)与P(容错性)是相互冲突的2种特性，最终的只能CA、CP、AP，百度百科说明：CAP原则`https://baike.baidu.com/item/CAP%E5%8E%9F%E5%88%99/5712863?fr=aladdin`
 
 ### Paxos算法
 

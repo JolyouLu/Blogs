@@ -6,7 +6,7 @@
 
 ### 下载安装包
 
-> [从Elasticsearch官网下载安装包](https://www.elastic.co/cn/downloads/elasticsearch)，选择Win版本
+> Elasticsearch官网下载安装包：`https://www.elastic.co/cn/downloads/elasticsearch`，选择Win版本
 
 ![image-20210830215321798](./images/image-20210830215321798.png)
 

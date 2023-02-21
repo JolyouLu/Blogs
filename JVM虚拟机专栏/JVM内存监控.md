@@ -281,7 +281,7 @@ daemon守护线程，tid jvm的线程id，nid映射操作系统的线程id，pri
 
 ## jvisualvm工具使用
 
-jvisualvm是一个JDK内置的视图化的JVM监控工具，更加友好的可视化界面，平时我们生产环境上使用的基本都是LIunx操作系统，所以是无法使用jvisualvm工具的，一般会在Liunx上使用**jmap -dump:format=b,file=<fileName>.hprof  [pid]**命令将当前jvm的信息导出.hprof文件后，然后导入到我们自己电脑上的jvisualvm中分析jvm，或者jvisualvm使用远程连接我们的JVM需添加一个启动参数，开放一个端口即可(相关设置后面说)
+jvisualvm是一个JDK内置的视图化的JVM监控工具，更加友好的可视化界面，平时我们生产环境上使用的基本都是Linux操作系统，所以是无法使用jvisualvm工具的，一般会在Linux上使用**jmap -dump:format=b,file=<fileName>.hprof  [pid]**命令将当前jvm的信息导出.hprof文件后，然后导入到我们自己电脑上的jvisualvm中分析jvm，或者jvisualvm使用远程连接我们的JVM需添加一个启动参数，开放一个端口即可(相关设置后面说)
 
 ### 打开jvisualvm
 

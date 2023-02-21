@@ -1,12 +1,12 @@
-## Liunx-Kafka单机部署
+## Linux-Kafka单机部署
 
 ### 前置环境
 
-[Zookeeper-快速入门(服务安装、单机部署、集群部署)]([(7条消息) Zookeeper-快速入门(服务安装、单机部署、集群部署)_JolyouLu的博客-CSDN博客](https://blog.csdn.net/weixin_44642403/article/details/115985332))
+[Zookeeper-快速入门](../分布式框架专栏/Zookeeper-快速入门.md)
 
 #### 安装包下载
 
-> 进入到[Apache Kafka](https://kafka.apache.org/)官方，下载Kafka安装包
+> 进入到 Apache Kafka：`https://kafka.apache.org/`官方，下载Kafka安装包
 
 ![image-20220702161749683](./images/image-20220702161749683.png)
 

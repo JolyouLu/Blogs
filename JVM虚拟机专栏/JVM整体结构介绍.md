@@ -2,7 +2,7 @@
 
 ## JVM是什么
 
-VMWare、Virtual Box相信大家都用过，我们可以在上面安装使用win liunx等系统，还可以设置我们系统内存等等，其实JVM(java虚拟机)就类似我们平时使用的虚拟机，JVM就像我们在虚拟机上安装的操作系统一样，运行在一个完全隔离环境中的完整计算机系统 
+VMWare、Virtual Box相信大家都用过，我们可以在上面安装使用win Linux等系统，还可以设置我们系统内存等等，其实JVM(java虚拟机)就类似我们平时使用的虚拟机，JVM就像我们在虚拟机上安装的操作系统一样，运行在一个完全隔离环境中的完整计算机系统 
 
 Java虚拟机阵营：Sun HotSpot VM、BEA JRockit VM、IBM J9 VM、Azul VM、Apache Harmony、Google Dalvik VM、Microsoft JVM
 

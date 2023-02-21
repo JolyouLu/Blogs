@@ -1,6 +1,6 @@
 # SpringBoot-集成Shiro
 
-> 任何涉及到用户的系统都需要权限控制，目前权限控制有2大框架`Shiro`与`SpringScurity`，Shiro是一个简单易上手的权限控制框架，在[Shiro框架入门到精通](https://blog.csdn.net/weixin_44642403/article/details/117886286)中对Shiro框架的核心思想，以及认证授权流程进行了学习后，接下来本片博客就讲解如何把Shiro集成到SpringBoot中
+> 任何涉及到用户的系统都需要权限控制，目前权限控制有2大框架`Shiro`与`SpringScurity`，Shiro是一个简单易上手的权限控制框架，在[Shiro框架入门到精通](../JAVA专栏/Shiro框架.md)中对Shiro框架的核心思想，以及认证授权流程进行了学习后，接下来本片博客就讲解如何把Shiro集成到SpringBoot中
 
 ## 业务分析
 
@@ -504,9 +504,9 @@ INSERT INTO roles_pers (id, roles_id, pers_id) VALUES (3, 1, 3);
 
 >请根据自己操作系统类型阅读如下安装教程，若已安装Redis跳过该目录即可
 
-[Win10-安装Redis](https://blog.csdn.net/weixin_44642403/article/details/118002597)
+[Win10-安装Redis](../Redis专栏/Win10-安装Redis.md)
 
-[Liunx-安装Redis](https://blog.csdn.net/weixin_44642403/article/details/109539410)
+[Linux-安装Redis](../Redis专栏/Linux-安装Redis.md)
 
 #### 启动Redis
 
@@ -660,7 +660,7 @@ public class RedisCacheManager implements CacheManager {
 
 > 在集成Redis时可能会遇到的2个坑以及解决方案
 
-[Shiro-集成Redis序列化失败报错解决](https://blog.csdn.net/weixin_44642403/article/details/118004269)
+[Shiro-集成Redis序列化失败报错解决](../填坑/Shiro-集成Redis序列化失败报错解决.md)
 
 ## Shiro加入验证码
 

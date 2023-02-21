@@ -157,9 +157,9 @@
 
 ## 单机/集群部署
 
-文章：[Liunx-RocketMQ单机部署](https://blog.csdn.net/weixin_44642403/article/details/119121400)
+文章：[Linux-RocketMQ单机部署](../分布式中间件专栏/Liunx-RocketMQ单机部署.md)
 
-文章：[Liunx-RocketMQ集群部署](https://blog.csdn.net/weixin_44642403/article/details/119225238)
+文章：[Linux-RocketMQ集群部署](../分布式中间件专栏/LIunx-RocketMQ集群部署.md)
 
 ## 运维工具
 
@@ -241,7 +241,7 @@ JAVA_OPT="${JAVA_OPT} -Djava.ext.dirs=${BASE_DIR}/lib:${JAVA_HOME}/jre/lib/ext:$
 
 > 具体如何使用命令，我推荐阅读官方提供的中午文档，里面讲的更加的全面
 >
-> 官方文档连接：[mqadmin管理工具-官方中文文档](https://github.com/apache/rocketmq/blob/master/docs/cn/operation.md)
+> 官方文档连接：mqadmin管理工具-官方中文文档`https://github.com/apache/rocketmq/blob/master/docs/cn/operation.md`
 
 ![image-20210731023527322](./images/image-20210731023527322.png)
 

@@ -1,6 +1,6 @@
-# Liunx命令速查手册
+# Linux命令速查手册
 
-## Liunx命令
+## Linux命令
 
 ### 用户与权限
 
@@ -51,7 +51,7 @@
 
 ### Zookeeper
 
-> 首先确保liunx是否安装了nc命令 `yum install -y nc`
+> 首先确保Linux是否安装了nc命令 `yum install -y nc`
 >
 > 命令使用格式`echo zk 命令|nc ip port`
 

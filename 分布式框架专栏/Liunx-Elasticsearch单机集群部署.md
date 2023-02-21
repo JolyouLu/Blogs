@@ -1,4 +1,4 @@
-# Liunx-Elasticsearch安装
+# Linux-Elasticsearch安装
 
 ## ES单机部署
 
@@ -6,13 +6,13 @@
 
 ### 下载安装包
 
-> [从Elasticsearch官网下载安装包](https://www.elastic.co/cn/downloads/elasticsearch)，选择Liunx版本
+> 从Elasticsearch官网下载安装包：`https://www.elastic.co/cn/downloads/elasticsearch`，选择Linux版本
 
 ![image-20210902144249047](./images/image-20210902144249047.png)
 
 ### 解压安装包
 
-> 将下载好的压缩包上传到Liunx中，使用`tar -zxvf elasticsearch-7.14.1-linux-x86_64.tar.gz`完成解压
+> 将下载好的压缩包上传到Linux中，使用`tar -zxvf elasticsearch-7.14.1-linux-x86_64.tar.gz`完成解压
 
 ![image-20210902144703444](./images/image-20210902144703444.png)
 
@@ -51,9 +51,9 @@ cluster.initial_master_nodes: ["node-1"]
 
 ![image-20210902145823535](./images/image-20210902145823535.png)
 
-#### 修改Liunx系统配置
+#### 修改Linux系统配置
 
-> 由于elasticsearch进程创建文件数量巨大，Liunx是会对进程创建文件数量有所限制，所以需要修改系统进程可以打开的最大文件数限制
+> 由于elasticsearch进程创建文件数量巨大，Linux是会对进程创建文件数量有所限制，所以需要修改系统进程可以打开的最大文件数限制
 
 ##### limits.conf
 
@@ -165,7 +165,7 @@ cluster.routing.allocation.node_initial_primaries_recoveries: 16
 
 ### 启动
 
-> 进入到elasticsearch-7.14.1启动es服务，执行如下命令分别启动2个Liunx中的ES
+> 进入到elasticsearch-7.14.1启动es服务，执行如下命令分别启动2个Linux中的ES
 
 ~~~shell
 # 切换到es用户

@@ -97,7 +97,7 @@ CREATE TABLE course_2(
 
 > 修改application.properties增加shardingsphere配置在ShardingSphere官网用户手册=>ShardingSphere-JDBC=>配置手册中都有详细的说明
 >
-> [官方配置文档地址](https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/configuration/config-spring-boot/)
+> 官方配置文档地址`https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/configuration/config-spring-boot/`
 
 ~~~properties
 # 配置shardingjdbc分片策略
@@ -162,7 +162,7 @@ spring.shardingsphere.props.sql.show=true
 
 > 修改application.properties增加shardingsphere配置在ShardingSphere官网用户手册=>ShardingSphere-JDBC=>配置手册中都有详细的说明
 >
-> [官方配置文档地址](https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/configuration/config-spring-boot/)
+> 官方配置文档地址`https://shardingsphere.apache.org/document/legacy/4.x/document/cn/manual/sharding-jdbc/configuration/config-spring-boot/`
 
 ~~~properties
 # 配置shardingjdbc分片策略
@@ -386,7 +386,7 @@ spring.shardingsphere.props.sql.show=true
 >
 > Sharding-JDBC是不做主从复制数据同步的，主从复制需要通过配置Mysql实现，而Sharding-JDBC只是根据语义(CRUD)判断你是做增删改查的那种操作，并且给你路由到主库/从库
 
-[Mysql-主从配置与读写分离](https://blog.csdn.net/weixin_44642403/article/details/119984259)
+[Mysql-主从配置与读写分离](../数据持久化专栏/Mysql-主从配置与读写分离.md)
 
 ### properties配置
 

@@ -53,7 +53,7 @@
 
 #### 常用参数设置
 
-> 以下参数是在用户自己的MR应用程序中配置就可以生效([mapred-default.xml](https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml))
+> 以下参数是在用户自己的MR应用程序中配置就可以生效(mapred-default.xml`https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml`)
 
 | 配置参数                                      | 参数说明                                                     |
 | --------------------------------------------- | ------------------------------------------------------------ |
@@ -66,7 +66,7 @@
 | mapreduce.reduce.shuffle.input.buffer.percent | Buffer大小占Reduce可用内存的比例，默认0.7                    |
 | mapreduce.reduce.input.buffer.percent         | 指定多少比例的内存用来存放Buffer中的数据，默认值0.0          |
 
-> 在YARN启动之前就配置在服务器的配置文件中才能生效([yarn-default.xml](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-common/yarn-default.xml))
+> 在YARN启动之前就配置在服务器的配置文件中才能生效(yarn-default.xml`https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-common/yarn-default.xml`)
 
 | 配置参数                                 | 参数说明                                    |
 | ---------------------------------------- | ------------------------------------------- |
@@ -76,14 +76,14 @@
 | yarn.scheduler.maximum-allocation-vcores | 每个Container申请的最大CPU核数，默认32      |
 | yarn.nodemanager.resource.memory-mb      | 给Container分配的最大物理内存，默认8192     |
 
-> Shuffle性能优化的关键参数，应在YARN启动之前就配置好([mapred-default.xml](https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml))
+> Shuffle性能优化的关键参数，应在YARN启动之前就配置好(mapred-default.xml`https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml`)
 
 | 配置参数                         | 参数说明                          |
 | -------------------------------- | --------------------------------- |
 | mapreduce.task.io.sort.mb        | Shuffle的环形缓冲区大小，默认100m |
 | mapreduce.map.sort.spill.percent | 环形缓冲区溢出的阈值，默认80%     |
 
-> 如果相关参数(MapReduce性能优化)([mapred-default.xml](https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml))
+> 如果相关参数(MapReduce性能优化)(mapred-default.xml`https://hadoop.apache.org/docs/r2.7.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml`)
 
 | 配置参数                     | 参数说明                                                     |
 | ---------------------------- | ------------------------------------------------------------ |

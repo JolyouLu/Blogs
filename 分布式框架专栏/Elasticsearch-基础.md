@@ -8,9 +8,9 @@
 
 ## ES安装
 
-[Liunx-Elasticsearch单机与集群部署](https://blog.csdn.net/weixin_44642403/article/details/119988003)
+[Linux-Elasticsearch单机与集群部署](Liunx-Elasticsearch单机集群部署.md)
 
-[Win-Elasticsearch单机与集群部署](https://blog.csdn.net/weixin_44642403/article/details/120066286)
+[Win-Elasticsearch单机与集群部署](Win-Elasticsearch单机集群部署.md)
 
 ## 客户端的安装
 
@@ -18,7 +18,7 @@
 >
 > 相信大多小伙伴对Postman并不模式，它是一个强大的网络调试工具，可以发送任何类型的HTTP请求如GET、POST、HEAD、PUT等，还能附带任意类型的消息
 >
-> [点击进入Postman官网](https://www.postman.com/)，自行安装
+> 点击进入Postman官网`https://www.postman.com/`，自行安装
 
 ![image-20210830221252727](./images/image-20210830221252727.png)
 
@@ -233,7 +233,7 @@
 
 ### 下载kibana
 
-> 进入[kibana下载地址](https://www.elastic.co/cn/downloads/kibana)下载压缩包，下载完成后解压
+> 进入kibana下载地址`https://www.elastic.co/cn/downloads/kibana`下载压缩包，下载完成后解压
 
 ![image-20210908142554530](./images/image-20210908142554530.png)
 

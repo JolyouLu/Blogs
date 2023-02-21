@@ -153,7 +153,7 @@ public Binding cQueueBindingX(@Qualifier("cQueue") Queue cQueue,
 
 #### 下载
 
-> [RabbitMQ官网下载插件页面](https://www.rabbitmq.com/community-plugins.html)，下载`rabbitmq_delayed_message_exchange`插件
+> RabbitMQ官网下载插件页面：`https://www.rabbitmq.com/community-plugins.html`，下载`rabbitmq_delayed_message_exchange`插件
 
 ![image-20211026151254984](./images/image-20211026151254984.png)
 
@@ -161,7 +161,7 @@ public Binding cQueueBindingX(@Qualifier("cQueue") Queue cQueue,
 
 #### 安装
 
-> 将下载好的ez安装包拷贝到liunx上，执行如下命令重启RabbitMQ完成安装
+> 将下载好的ez安装包拷贝到Linux上，执行如下命令重启RabbitMQ完成安装
 
 ~~~shell
 #进入到rabbitmq的安装目录下

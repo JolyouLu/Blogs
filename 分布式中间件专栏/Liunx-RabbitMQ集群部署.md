@@ -1,8 +1,8 @@
-# Liunx-RabbitMQ集群部署
+# Linux-RabbitMQ集群部署
 
-> 以下说明的是RabbitMQ集群部署，在部署集群之前首先需要准备3台机器，并且都安装上RabbitMQ单机版，如果未安装的可以阅读Liunx-RabbitMQ单机部署文章
+> 以下说明的是RabbitMQ集群部署，在部署集群之前首先需要准备3台机器，并且都安装上RabbitMQ单机版，如果未安装的可以阅读Linux-RabbitMQ单机部署文章
 
-[Liunx-RabbitMQ单机部署](https://blog.csdn.net/weixin_44642403/article/details/120931857)
+[Linux-RabbitMQ单机部署](../分布式中间件专栏/Liunx-RabbitMQ单机部署.md)
 
 ## 搭建示意图
 

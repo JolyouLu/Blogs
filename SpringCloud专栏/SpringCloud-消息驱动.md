@@ -27,7 +27,7 @@
 
 > 本次案例使用RabbitMQ作为消息中间件，并且编写生产者使用Stream往消息中间件推送消息，若没使用过RabbitMQ请阅读的RabbitMQ文章
 >
-> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](https://blog.csdn.net/weixin_44642403/article/details/120931674)
+> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](../分布式中间件专栏/RabbitMQ-基础.md)
 
 **依赖引入**
 
@@ -66,7 +66,7 @@
 
 > 本次案例使用RabbitMQ作为消息中间件，并且编写消费者使用Stream往消息中间件获取消息，若没使用过RabbitMQ请阅读的RabbitMQ文章
 >
-> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](https://blog.csdn.net/weixin_44642403/article/details/120931674)
+> [RabbitMQ-基础(四大核心概念、六大模式、消息应答、持久化、分发逻辑、主题模式、延迟队列)](../分布式中间件专栏/RabbitMQ-基础.md)
 
 **依赖引入**
 

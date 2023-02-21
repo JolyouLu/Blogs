@@ -6,7 +6,7 @@
 
 ### 基本介绍
 
-> SpringCloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通信框架，使得Gateway 在高并发下有很好的性能，若想了解Netty框架可以阅读我的专栏[JAVA网络编程](https://blog.csdn.net/weixin_44642403/category_10325897.html?spm=1001.2014.3001.5482)
+> SpringCloud Gateway 使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通信框架，使得Gateway 在高并发下有很好的性能，若想了解Netty框架可以阅读我的专栏[JAVA网络编程](../网络编程专栏)
 >
 > GateWay能干什么？ 反向代理、鉴权、流量控制、熔断、日志监控等
 
@@ -103,7 +103,7 @@
 
 > Predicat断言，是一个很重要的东西，它决定了你路由需要截取那些请求转发到哪里，在启动GateWay服务时，可以发现有一个叫RoutePredicateFactory工厂加载了好多东西，可以发现其中`Path`就是我们前面在yml中配置的东西，接下来就讲解一些其它断言的使用，会让你路由配置更上一层楼
 >
-> [官方文档对11种断言的说明](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories)
+> 官方文档对11种断言的说明`https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories`
 
 ![image-20211219130055709](./images/image-20211219130055709.png)
 
@@ -231,8 +231,8 @@ predicates:
 >
 > 种类分两种
 >
-> 1. GatewayFilter：单一的过滤器 [官方文档](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories)
-> 2. GlobalFilter：全局的过滤器 [官方文档](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#global-filters)
+> 1. GatewayFilter：单一的过滤器 官方文档`https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories`
+> 2. GlobalFilter：全局的过滤器 官方文档`https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#global-filters`
 
 #### GatewayFilter
 

@@ -1,6 +1,6 @@
-﻿# Liunx安装mysql数据库
-在安装mysql需要有一定的Liunx知识，小伙伴可以通过我以下博客学习到一下liunx的基础知识
-[Lunx基础入门](https://blog.csdn.net/weixin_44642403/article/details/103437860)
+﻿# Linux安装mysql数据库
+在安装mysql需要有一定的Linux知识，小伙伴可以通过我以下博客学习到一下Linux的基础知识
+[Lunx基础入门](../Liunx专栏/Linux-安装和常用命令.md)
 ## 卸载本来mysql服务
 ~~~shell
 #查看mysql是否开启着

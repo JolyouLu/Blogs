@@ -3,7 +3,7 @@ Java 目前主要分为两种Oracle Java 和 OpenJDK，其中 OpenJDK 是 Java �
 ## 安装Oracle Java
 Oracle JDK由Oracle公司开发的一个商业的java版本，该公司是Sun许可证，基于Java标准版规范实现，它以二进制产品的形式发布,它支持多种操作系统，如Windows，Linux，Solaris，MacOS等，它支持不同的平台，如Intel 32位和64位架构，ARM架构和SPARC，它完全基于Java编程语言，之后，该许可证宣布将根据GPL（通用公共许可证）许可证发布，Oracle JDK包含许多组件作为库形式的编程工具集合
 ### 下载tar.gz包
-通过Oracle Java官网下载到相应的tar.gz [JDK8下载地址](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+通过Oracle Java官网下载到相应的tar.gz JDK8下载地址：`https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html`
 这里要注意的是树莓派是ARM架构，并且大多数都是32位的不要下错包了，我下的是JDK8，32位的
 ![在这里插入图片描述](./images/20210211235149499.png)
 

@@ -6,7 +6,7 @@
 
 ## Zookeeper下载
 
-[Zookeeper官网下载地址](https://zookeeper.apache.org/releases.html#download)
+Zookeeper官网下载地址`https://zookeeper.apache.org/releases.html#download`
 
 ![image-20210421214633773](./images/image-20210421214633773.png)
 
@@ -77,7 +77,7 @@ Mode：standalone 单机模式
 
 #### 配置文件修改
 
-准备3台Liunx，同时下载与解压了Zookeeper包，并且修改配置文件
+准备3台Linux，同时下载与解压了Zookeeper包，并且修改配置文件
 
 ~~~shell
 #进入Zookeeper到conf目录

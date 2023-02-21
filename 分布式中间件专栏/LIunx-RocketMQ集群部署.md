@@ -71,9 +71,9 @@
 
 #### 前期准备
 
-> 1. 准备2台Liunx系统
+> 1. 准备2台Linux系统
 >
-> 2. 下载RocketMQ压缩包：[下载地址](https://rocketmq.apache.org/dowloading/releases/)
+> 2. 下载RocketMQ压缩包：`https://rocketmq.apache.org/dowloading/releases/`
 >
 > 3. 将压缩包拷贝到自己喜欢的目录
 > 4. 解压压缩包`unzip rocketmq-all-4.9.0-bin-release.zip`

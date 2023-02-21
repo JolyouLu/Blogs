@@ -95,8 +95,8 @@
 ## Hadoop环境搭建
 
 ### Linux依赖准备
-> 如何安装Linux系统安装请看 [Win10-VMware Liunx安装](https://blog.csdn.net/weixin_44642403/article/details/103437742)
-> </br>在搭建环境之下liunx需要执行如下命令安装依赖与隔壁防火墙
+> 如何安装Linux系统安装请看 [Win10-VMware Linux安装](../Liunx专栏/VMware-安装Liunx.md)
+> </br>在搭建环境之下Linux需要执行如下命令安装依赖与隔壁防火墙
 
 ~~~shell
 #epel-release 是为"红帽系"操作系统提供额外的软件包
@@ -151,7 +151,7 @@ java -version
 
 ### Hadoop3.x安装
 
-> 这里使用的Hadoop3.1.3，[下载地址](https://archive.apache.org/dist/hadoop/common/hadoop-3.1.3/)
+> 这里使用的Hadoop3.1.3，下载地址`https://archive.apache.org/dist/hadoop/common/hadoop-3.1.3/`
 
 ~~~shell
 #将hadoop解压到指定的目录
