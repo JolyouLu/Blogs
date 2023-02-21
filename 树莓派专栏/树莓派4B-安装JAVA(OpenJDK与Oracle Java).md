@@ -1,0 +1,79 @@
+﻿﻿# 树莓派安装JAVA
+Java 目前主要分为两种Oracle Java 和 OpenJDK，其中 OpenJDK 是 Java 平台的开源实现而Oracle Java 具有其他一些商业功能，并且许可仅允许非商业用途，下面介绍如何在树莓派的上安装Java包括Oracle Java 和 OpenJDK都有说明
+## 安装Oracle Java
+Oracle JDK由Oracle公司开发的一个商业的java版本，该公司是Sun许可证，基于Java标准版规范实现，它以二进制产品的形式发布,它支持多种操作系统，如Windows，Linux，Solaris，MacOS等，它支持不同的平台，如Intel 32位和64位架构，ARM架构和SPARC，它完全基于Java编程语言，之后，该许可证宣布将根据GPL（通用公共许可证）许可证发布，Oracle JDK包含许多组件作为库形式的编程工具集合
+### 下载tar.gz包
+通过Oracle Java官网下载到相应的tar.gz [JDK8下载地址](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+这里要注意的是树莓派是ARM架构，并且大多数都是32位的不要下错包了，我下的是JDK8，32位的
+![在这里插入图片描述](./images/20210211235149499.png)
+
+### 解压tar.gz包
+执行如下命令
+~~~shell
+#解压jdk8压缩包
+tar -zxvf jdk-8u281-linux-arm32-vfp-hflt.tar.gz jdk1.8.0_281/
+#将压缩包拷贝到自己喜欢的目录下
+cp jdk1.8.0_281/ /usr/local/
+~~~
+### 配置环境变量
+编辑profile增加jdk8环境变量
+~~~shell
+sudo vim /etc/profile
+~~~
+在profile文件的末尾增加jdk环境变量
+`JAVA_HOME=/usr/local/jdk1.8.0_231（这里是你的jdk8的目录）`
+`CLASSPATH=$JAVA_HOME/lib/`
+`PATH=$PATH:$JAVA_HOME/bin`
+`export PATH JAVA_HOME CLASSPATH`
+![在这里插入图片描述](./images/20210211235509785.png)
+重新加载环境变量
+
+~~~shell
+source /etc/profile
+~~~
+### 查看java版本
+通过`java -version`命令通过查看到当前jdk版本表示成功
+![在这里插入图片描述](./images/20210211235810164.png)
+
+## 安装OpenJDK
+OpenJDK是Java SE平台版的开源和免费实现，它是Sun Corporation（现在的Oracle Corporation）于2006年开始的开发结果，它是根据GNU GPL许可证授权的，它最初于2007年发布，它由Oracle Corporation，Red Hat，IBM，Apple Inc.，OpenJDK和Java Community等开发，它是使用C ++和Java编程语言编写的，它支持不同的操作系统，如FreeBSD，Linux，Microsoft Windows，Mac OS X. OpenJDK是Java SE Platform Edition的官方参考实现
+### 安装最新版JDK
+执行如下命令
+~~~shell
+sudo apt install default-jdk
+~~~
+安装完成后查看版本号
+~~~shell
+java -version
+~~~
+我们可以看到安装了最新的JDK 11
+![在这里插入图片描述](./images/20210211220632303.png)
+
+### 安装JDK8
+jdk8才是目前最流行的版本，如果需要指定安装jdk8命令为
+~~~shell
+sudo apt install openjdk-8-jdk
+~~~
+安装完成后查看版本号
+~~~shell
+java -version
+~~~
+![在这里插入图片描述](./images/20210211221144333.png)
+### 多个JDK版本相互切换
+>前面分别说明了如何安装jdk11和jdk8，肯定有很多朋友按自己需求选择性按照自己的jdk，小孩子才做选择题，像我都是2个都要，接下来教大家如何在jdk多个版本中来回切换
+
+安装多个 Java 版本并不会冲突，如果需要设置默认的版本，可以使用update-alternatives 修改默认版本
+~~~shell
+#设置java优先级
+sudo update-alternatives --config java
+#设置javac优先级
+sudo update-alternatives --config javac
+~~~
+你可以看到你现在拥有的jdk版本，输入 0/1/2  即可切换jdk默认版本
+![在这里插入图片描述](./images/20210211221848455.png)
+### 卸载JDK
+执行如下命令删除相应的jdk
+~~~shell
+#删除于jdk-8相关的所有包，如果不知道openjdk几可以按tab会自动补全
+sudo apt remove openjdk-8*
+~~~
