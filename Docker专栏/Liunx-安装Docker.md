@@ -21,7 +21,7 @@ sudo yum remove docker \
 ~~~shell
 sudo yum install -y yum-utils
 ~~~
-![在这里插入图片描述](images/20210502180409238.png)
+![在这里插入图片描述](./images/20210502180409238.png)
 
 ## 设置仓库源
 > 仓库源一般选择国内的一些源地址，这样比较文件，下载速度也快，这里提供2个下载源，使用其中一个即可
@@ -35,7 +35,7 @@ sudo yum-config-manager \
 	--add-repo \
 	https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
 ~~~
-![在这里插入图片描述](images/20210502180453746.png)
+![在这里插入图片描述](./images/20210502180453746.png)
 
 ## 安装 Docker最新版
 > 执行如下命令可以安装Docker最新版本 docker-ce（社区版） docker-ee（企业版），官方推荐社区版
@@ -49,7 +49,7 @@ sudo yum install docker-ce docker-ce-cli containerd.io
 ~~~shell
 yum list docker-ce --showduplicates | sort -r
 ~~~
-![在这里插入图片描述](images/20210301162753784.png)
+![在这里插入图片描述](./images/20210301162753784.png)
 **指定版本安装**
 
 > 使用如下命令指定版本安装，这里我指定安装`18.03.1.ce-1.el7.centos`
@@ -57,7 +57,7 @@ yum list docker-ce --showduplicates | sort -r
 ~~~shell
  sudo yum install docker-ce-18.03.1.ce-1.el7.centos docker-ce-cli-docker-ce-18.03.1.ce-1.el7.centos containerd.io
 ~~~
-![在这里插入图片描述](C:\Users\samson\OneDrive\CSDN\Redis专栏\images\20210301163158144.png)
+![在这里插入图片描述](./images/20210301163158144.png)
 ## Docker基本命令
 ~~~shell
 # Docker开机自启
@@ -75,7 +75,7 @@ sudo systemctl restart docker
 
 
 
-![在这里插入图片描述](C:\Users\samson\OneDrive\CSDN\Redis专栏\images\69dde99d0a57415098f7ab787b38ed2f.png)
+![在这里插入图片描述](./images/69dde99d0a57415098f7ab787b38ed2f.png)
 
 
 
@@ -87,7 +87,7 @@ sudo docker run hello-world
 > 出现如下内容表示安装成功
 
 
-![在这里插入图片描述](C:\Users\samson\OneDrive\CSDN\Redis专栏\images\20210301170512133.png)
+![在这里插入图片描述](./images/20210301170512133.png)
 
 ## 卸载Docker
 ~~~shell
