@@ -222,8 +222,8 @@ main $1 $2
 #-v /data/redis/conf/redis.conf:/etc/redis.conf：主机/data/redis/conf下的配置文件挂载到容器内
 #redos-server /etc/redis/redis.conf使用配置文件启动
 docker run -d -p 6379:6379 \
-	-v /data/redis/dtat:/data \
-	-v /data/redis/conf/redis.conf:/etc/redis.conf\
+    -v /data/redis/data:/data \
+    -v /data/redis/conf/redis.conf:/etc/redis.conf \
     --name redis-6379 \
     redis
 ~~~
@@ -329,7 +329,37 @@ docker run -d --name sonarqube \
     sonarqube
 ~~~
 
+### 部署Gogs服务
 
+~~~shell
+docker run -d -p 10022:22\
+   -p 3000:3000\
+   --name=gogs\
+   --restart=always\
+   -e TZ="Asia/Shanghai"\
+   -v /data/gogs/data:/data \
+   --name gogs \
+   gogs/gogs
+~~~
+
+### 部署GitLib服务
+
+~~~shell
+docker run --detach \
+  --hostname 192.168.100.11 \
+  --publish 443:443 --publish 9003:80 --publish 9004:22 \
+  --name gitlab \
+  --restart always \
+  --volume /data/docker_container/gitlab/config:/etc/gitlab \
+  --volume /data/docker_container/gitlab/logs:/var/log/gitlab \
+  --volume /data/docker_container/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce
+  
+#查看日志
+docker logs -f gitlab
+#获取root账号的密码
+sudo docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+~~~
 
 ## DockerFile脚本
 
