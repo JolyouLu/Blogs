@@ -104,7 +104,7 @@ vim zoo.cfg
 
 > 使用`./zkServer.sh start`命令分别启动3台Zookeeper，可以发现这3台服务中，有1个leader，2个follower
 
-![image-20210421231218431](./images/image-20210421231218431.png)
+![image-20210421231218431](images/image-20210421231218431-16961412366251.png)
 
 #### 连接Zookeeper集群
 
