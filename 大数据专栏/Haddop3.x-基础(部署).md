@@ -240,7 +240,7 @@ rsync -rvl 源路径 目标路径
 
 ###### 拷贝文件案例
 
-> 登录到hadoop51执行如下命令将51的安装包拷贝到另外3台机器上
+> 登录到hadoop102执行如下命令将102的安装包拷贝到另外3台机器上
 
 ~~~shell
 rsync -rvl /opt/module root@hadoop103:/opt/module
@@ -272,7 +272,7 @@ cd ~
 mkdir bin
 cd bin/
 touch xsync
-vi sxync
+vi xsync
 ~~~
 
 > 脚本内容
@@ -313,7 +313,7 @@ done
 
 ###### 测试
 
-![image-20220731211551891](./images/image-20220731211551891.png)
+![image-20230806140716375](./images/image-20230806140716375.png)
 
 #### SSH无密码登录
 
@@ -325,10 +325,9 @@ cd .ssh
 #生产ssh公私钥
 ssh-keygen -t rsa
 #将公钥拷贝带其它电脑上，第一次需要输入密码
-ssh-copy-id hadoop51
-ssh-copy-id hadoop52
-ssh-copy-id hadoop53
-ssh-copy-id hadoop54
+ssh-copy-id hadoop102
+ssh-copy-id hadoop103
+ssh-copy-id hadoop104
 ~~~
 
 #### 集群配置
@@ -386,7 +385,7 @@ vi /opt/module/hadoop-3.1.3/etc/hadoop/hdfs-site.xml
     <value>hadoop102:9870</value>
 </property>
 <!-- 2nn web 端访问地址-->
-<property>
+<property>i
     <name>dfs.namenode.secondary.http-address</name>
     <value>hadoop104:9868</value>
 </property>
@@ -475,7 +474,7 @@ xsync /opt/module/hadoop-3.1.3/etc/hadoop/
 
 ~~~shell
 #进入hadoop-env.sh
-vim etc/hadoop/hadoop-env.sh
+vim /opt/module/hadoop-3.1.3/etc/hadoop/hadoop-env.sh
 #添加如下内容
 export YARN_RESOURCEMANAGER_USER=root
 export YARN_NODEMANAGER_USER=root
@@ -513,7 +512,7 @@ hdfs namenode -format
 
 ###### 启动HDFS集群
 
-> 进入到集群的`任意`一台主机下执行`sbin/strt-dfs.sh`脚本，hadoop会使用ssh命令远程控制集群的其它节点一起启动
+> 进入到集群的`任意`一台主机下执行`sbin/start-dfs.sh `脚本，hadoop会使用ssh命令远程控制集群的其它节点一起启动
 
 ![image-20230219003642607](./images/image-20230219003642607.png)
 
@@ -542,7 +541,7 @@ hdfs namenode -format
 
 > 在浏览器中输入http://hadoop102:9870查看是否能够正常访问
 
-![image-20230219003830222](./images/image-20230219003830222.png)
+![image-20230806144150414](./images/image-20230806144150414.png)
 
 ###### 服务Yarn
 
