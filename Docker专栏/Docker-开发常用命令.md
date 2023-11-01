@@ -263,6 +263,44 @@ mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 mysql> flush privileges;
 ~~~
 
+**用户管理**
+
+~~~sql
+#创建test用户访问权限是%(不做任何限制)，密码123456
+CREATE USER 'test'@'%' IDENTIFIED BY '123456';
+#修改test用户的密码为 123456
+SET PASSWORD FOR 'test'@'%'='123456';
+#删除test用户
+DROP USER 'test'@'%';
+#刷新权限
+flush privileges;
+~~~
+
+**权限控制**
+
+~~~sql
+#查看所有权限
+show privileges;
+#给test分配权限 权限使用ALL可分配所有,分配多个表可以数据库名.*
+GRANT 权限1,权限2,…权限n ON 数据库名称.表名称 TO 'test'@'%';
+#回收指定权限
+REVOKE 权限1,权限2,…权限n ON 数据库名称.表名称 FROM 'test'@'%';
+#刷新权限
+flush privileges;
+~~~
+
+| 权限                        | 说明                                                         |
+| --------------------------- | ------------------------------------------------------------ |
+| CREATE,DROP                 | 可以创建新的数据库和表，或删除（移掉）已有的数据库和表。如果将MySQL数据库中的DROP权限授予某用户，用户就可以删除MySQL访问权限保存的数据库 |
+| SELECT,INSERT,UPDATE,DELETE | 允许在一个数据库现有的表上实施操作                           |
+| INDEX                       | 允许创建或删除索引，INDEX适用于已有的表。如果具有某个表的CREATE权限，就可以在CREATE TABLE语句中包括索引定义 |
+| ALTER                       | 可以使用ALTER TABLE来更改表的结构和重新命名表                |
+| CREATE ROUTINE              | 用来创建保存的程序（函数和程序），ALTER ROUTINE权限用来更改和删除保存的程序， EXECUTE权限 用来执行保存的程序 |
+| GRANT                       | 允许授权给其他用户，可用于数据库、表和保存的程序             |
+| FILE                        | 使用户可以使用LOAD DATA INFILE和SELECT ... INTO OUTFILE语句读或写服务器上的文件，任何被授予FILE权限的用户都能读或写MySQL服务器上的任何文件（说明用户可以读任何数据库目录下的文件，因为服务器可以访问这些文件） |
+
+
+
 ### 部署Nginx服务
 
 ~~~shell
