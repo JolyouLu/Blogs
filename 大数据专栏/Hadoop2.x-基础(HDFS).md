@@ -98,27 +98,7 @@
 
 ## HDFS客户端操作(Java)
 
-### Hadoop环境变量
-
-> 下载hadoop，镜像链接：https://hadoop.apache.org/release/2.7.2.html
->
-> 下载winutils，选择2.7版本下载 win下安装hadoop需要这些部分文件链接：https://github.com/steveloughran/winutils
-
-**解压hadoop-2.7.2**
-
-![image-20220814153044141](./images/image-20220814153044141.png)
-
-**覆盖bin目录**
-
-![image-20220814153232872](./images/image-20220814153232872.png)
-
-**配置环境变量**
-
-> 将Hadoop的目录配置到win系统环境变量中
-
-![image-20220814153438776](./images/image-20220814153438776.png)
-
-![image-20220814153523536](./images/image-20220814153523536.png)
+[Win-连接HDFS客户端](./Win-连接HDFS客户端.md)
 
 ### 创建一个Maven工程
 
