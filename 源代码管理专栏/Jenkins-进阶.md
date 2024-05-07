@@ -304,3 +304,40 @@ pipeline {
 }
 ~~~
 
+## 常见问题
+
+### 宿主机无法访问容器
+
+**防火墙未开**
+
+~~~shell
+# 查看防火墙是否开启
+firewall-cmd --state
+# 查看防火墙所开放的端口
+firewall-cmd --list-ports
+# 开放90端口(--premanent表示永久添加)
+firewall-cmd --permanent --add-port=90/tcp
+# 重启防火墙(修改配置后要重启防火墙)
+firewall-cmd --reload
+~~~
+
+**直接关闭防火墙**
+
+~~~shell
+#临时关闭(生产环境不推荐)
+systemctl stop firewalld
+#永久关闭,即设置开机的时候不自动启动(生产环境不推荐)
+systemctl disable firewalld 
+~~~
+
+**没有启用IP_FORWARD**
+
+~~~shell
+#检查是否开启(如果返回0表示关闭需要开启)
+sysctl net.ipv4.ip_forward
+#使用该命令开启
+echo 'net.ipv4.ip_forward = 1' >> /usr/lib/sysctl.d/50-default.conf
+#刷新一下状态
+sysctl -p /usr/lib/sysctl.d/50-default.conf
+~~~
+
