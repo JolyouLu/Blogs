@@ -225,10 +225,28 @@ docker run -d -p 6379:6379 \
     -v /data/redis/data:/data \
     -v /data/redis/conf/redis.conf:/etc/redis.conf \
     --name redis-6379 \
+    --net=host \
     redis
 ~~~
 
+**默认配置文件**
+
+~~~shell
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+#log-error      = /var/log/mysql/error.log
+# By default we only accept connections from localhost
+#bind-address   = 127.0.0.1
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+~~~
+
+
+
 ### 部署Mysql服务
+
 ~~~shell
 # docker run -d(后台启动) 
 # -p 3306:3306(主机3306:容器3306端口相互映射) 
@@ -238,10 +256,10 @@ docker run -d -p 6379:6379 \
 # --name mysql(为启动的容器命名)
 # mysql:5.7(使用mysql:5.7镜像启动)
 docker run -d -p 3306:3306 \
-	-v /data/mysql/conf:/etc/mysql/conf.d \
-	-v /data/mysql/data:/var/lib/mysql \
-	-e MYSQL_ROOT_PASSWORD=123456 \
-	--name mysql \
+	-v /data/mysql-conf:/etc/mysql/mysql.conf.d \
+	-v /data/mysql-data/5.7.30:/var/lib/mysql \
+	--name mysql-3306 \
+	--net=host \
 	mysql:5.7
 ~~~
 
