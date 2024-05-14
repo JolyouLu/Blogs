@@ -956,3 +956,78 @@ println("****************")
 rdd.foreach(println)
 ~~~
 
+#### RDD序列化
+
+##### 闭包检查
+
+从计算的角度，算子外的代码都是在Driver端执行，算子里面的代码都是在Executor端执行。那么在scala的函数式编程中，就会导致算子内经常会用到算子外的数据，这样就会形成闭包的效果，如果使用的算子外的数据无法序列化，就意味着无法传值给Executor端执行，就会发生错误，所以需要在执行任务计算前，检测闭包内的对象是否可以解析序列化，这操作我们通常称为闭包检查
+
+## Kryo序列化框架
+
+### Spark中存在的序列化问题
+
+执行如下代码会发现一个无法序列化的问题
+
+~~~java
+object Spark01_RDD_Serial {
+  def main(args: Array[String]): Unit = {
+    //准备环境 [*]:表示使用当前系统最大核
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+    val sc: SparkContext = new SparkContext(sparkConf)
+    val rdd: RDD[String] = sc.makeRDD(Array("hello word", "hello spark", "hello"))
+    //创建一个对象操作rdd：过滤rdd中包含query的字符串就保留下列
+    val search = new Search("h");
+    search.getMatch1(rdd).collect().foreach(println)
+    sc.stop()
+  }
+
+  class Search(query: String){
+    def getMatch1(rdd: RDD[String]): RDD[String] = {
+      rdd.filter(s.contains(query))
+    }
+  }
+}
+~~~
+
+![image-20240512173513614](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240512173513614.png)
+
+> 因为算子外的代码在Driver端执行，算子里面的代码都是在Executor端执行，这就会有一个问题Driver中new的Search要在Executor中执行运输，那么就是说Search要传输到Executor才能执行所以需要序列化，又因为Search对象没有序列化修饰所以导致无法传输，，所以报错了
+
+### 使用Kryo序列化框架
+
+由于Spark 2.x之后内部已经有很多的实现使用了Kryo框架序列化所以无需而外引入包，直接修改一些SparkConf指定序列化规则即可
+
+> 为什么需要使用Kryo序列化：
+>
+> 1. Java默认的序列化重量级，序列化后文件大，网络传输慢
+> 2. Java设计之初出于安全考虑有的类中属性被`transient`修饰，被`transient`修饰的属性序列化时是不会序列化的，所以导致即使加了序列化有的类数据无法在Executor端读取
+
+~~~java
+object Spark01_RDD_Serial {
+  def main(args: Array[String]): Unit = {
+    //准备环境 [*]:表示使用当前系统最大核
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+        
+    //替换默认序列化规则
+    sparkConf.set("spark.serializer","com.esotericsoftware.kryo.KryoSerializable")
+    //注册需要使用kryo序列化的自定义类
+    sparkConf.registerKryoClasses(Array(classOf[Search]))
+        
+    val sc: SparkContext = new SparkContext(sparkConf)
+    val rdd: RDD[String] = sc.makeRDD(Array("hello word", "hello spark", "hello"))
+    //创建一个对象操作rdd：过滤rdd中包含query的字符串就保留下列
+    val search = new Search("h");
+    search.getMatch1(rdd).collect().foreach(println)
+    sc.stop()
+  }
+
+  class Search(query: String) extends Serializable {
+    def getMatch1(rdd: RDD[String]): RDD[String] = {
+      rdd.filter(s.contains(query))
+    }
+  }
+}
+~~~
+
+## RDD的依赖与血缘关系
+
