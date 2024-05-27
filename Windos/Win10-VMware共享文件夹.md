@@ -37,4 +37,4 @@ vim /etc/fstab
 id 用户名
 ~~~
 
-> 设置完成后使用`reboot`重启linux，重启完毕后即可看到目录
+> 设置完成后使用`mount -a`刷新，或者也可以使用`reboot`重启linux，重启完毕后即可看到目录
