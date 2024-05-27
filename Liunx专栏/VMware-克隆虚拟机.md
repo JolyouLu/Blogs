@@ -38,10 +38,17 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ![image-20220730111215586](./images/image-20220730111215586.png)
 
 ~~~shell
-#重启网络
-systemctl restart network
 #检查ip是否已修改
 ip addr
+#禁用NetworkManager服务
+# 查看服务状态
+systemctl status NetworkManager.service
+# 停止服务
+systemctl stop NetworkManager.service
+# 禁止启动
+systemctl disable NetworkManager.service
+#重启网络
+systemctl restart network
 ~~~
 
 ![image-20220730111522528](./images/image-20220730111522528.png)
@@ -175,3 +182,4 @@ systemctl start network
 > 可以看到网卡信息出现了
 
 ![image-20220730112451034](./images/image-20220730112451034.png)
+
