@@ -452,45 +452,42 @@ public class TransactionProducer {
         producer.setTransactionListener(new ICBCTransactionListener());
         producer.start();
 
-        //发送3种不同的消息
-        String[] tags = {"msgTagCommit","msgTagRollback","msgTagUnknow"};
-        for (int i = 0; i < 3; i++) {
-            byte[] body = ("msgBody," + i).getBytes();
-            Message msg = new Message("msgTopic", tags[i], body);
-            SendResult sendResult = producer.sendMessageInTransaction(msg, null);
-        }
+        //发生消息
+        byte[] body = ("付款人：张三，支付金额：300").getBytes();
+        Message msg = new Message("msgTopic", "orderId:001", body);
+        SendResult sendResult = producer.sendMessageInTransaction(msg, null);
 
     }
 
     //事务监听器
+    //当执行producer.sendMessageInTransaction之后消息会被预提交到MQ，MQ返回成功表示预提交成功
+    //预提交成功后，ICBCTransactionListener.executeLocalTransaction会被触发，执行本地事务
+    //    本地事务执行成功：返回COMMIT_MESSAGE后，消息才被投递到消费者
+    //    本地事务执行失败：返回ROLLBACK_MESSAGE，消息会被删除
     private static class ICBCTransactionListener implements TransactionListener{
 
-        //消息预提交成功后就会触发该回调
+        //消息预提交成功后就会触发该回调，执行生产者的本地事务
         @Override
         public LocalTransactionState executeLocalTransaction(Message message, Object o) {
-            System.out.println("预提交消息成功："+message);
-            switch (message.getTags()){
-                //假如收到msgTagCommit消息，表示执行扣款业务成功
-                case "msgTagCommit":
-                    System.out.println("扣款业务执行成功");
-                    return LocalTransactionState.COMMIT_MESSAGE;
-                //假如收到msgTagRollback消息，表示执行扣款业务失败
-                case "msgTagRollback":
-                    System.out.println("扣款业务执行失败");
-                    return LocalTransactionState.ROLLBACK_MESSAGE;
-                //假如收到msgTagUnknow消息，表示执行扣款业务未有执行结果
-                case "msgTagUnknow":
-                    System.out.println("扣款业务执行中，未有结果");
-                    return LocalTransactionState.UNKNOW;
-                default:
-                    return LocalTransactionState.UNKNOW;
+            System.out.println("准备阶段，执行本地事务："+message);
+            try {
+                //执行本地事务并且提交
+                System.out.println("扣款业务执行成功");
+                //返回一个提交消息给MQ
+                return LocalTransactionState.COMMIT_MESSAGE;
+            }catch (Exception e){
+                //发生了异常需要回滚事务
+                System.out.println("扣款业务执行失败");
+                //返回一个回滚消息给MQ
+                return LocalTransactionState.ROLLBACK_MESSAGE;
             }
         }
 
-        //消息回查
+        //假如executeLocalTransaction执行完毕后，返回COMMIT/ROLLBACK断网了，MQ没有收到消息
+        //那么MQ会通过不停的回查这个接口，用于返回本地事务是否成功
         @Override
         public LocalTransactionState checkLocalTransaction(MessageExt messageExt) {
-            System.out.println("执行消息回查："+messageExt.getTags());
+            //本地数据库查询订单记录，看订单是否存在，存在表示executeLocalTransaction是执行成功的，否则执行失败的
             System.out.println("正在查询数据库，获取预扣款结果");
             System.out.println("预扣款结果为成功");
             return LocalTransactionState.COMMIT_MESSAGE;
