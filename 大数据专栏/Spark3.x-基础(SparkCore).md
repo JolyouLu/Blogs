@@ -1,4 +1,4 @@
-# Spark3.x-基础(Core)
+# Spark3.x-基础(SparkCore)
 
 ## 运行架构
 
@@ -85,15 +85,7 @@
 4. Executor 进程启动后会向 Driver 反向注册，Executor 全部注册完成后 Driver 开始执行 main 函数
 5. 之后执行到 Action 算子时，触发一个 Job，并根据宽依赖开始划分 stage，每个 stage 生 成对应的 TaskSet，之后将 task 分发到各个 Executor 上执行
 
-## 核心编程
-
-> Spark 计算框架为了能够进行高并发和高吞吐的数据处理，封装了三大数据结构，用于 处理不同的应用场景。三大数据结构分别是
-
-1. RDD : 弹性分布式数据集
-2. 累加器：分布式共享只写变量
-3. 广播变量：分布式共享只读变量
-
-### RDD
+## 核心编程（RDD ）
 
 > RDD（Resilient Distributed Dataset）叫做弹性分布式数据集，是 Spark 中最基本的数据 处理模型。代码中是一个抽象类，它代表一个弹性的、不可变、可分区、里面的元素可并行 计算的集合
 >
@@ -101,7 +93,7 @@
 
 ![image-20231005173609081](./images/image-20231005173609081.png)
 
-#### 特点
+### 特点
 
 1. 弹性
 
@@ -123,9 +115,9 @@
 
 6. 可分区、并行计算
 
-#### RDD的创建
+### RDD的创建
 
-##### 从内存中创建RDD
+#### 从内存中创建RDD
 
 ~~~scala
 object Spark01_RDD_Memory {
@@ -143,7 +135,7 @@ object Spark01_RDD_Memory {
 }
 ~~~
 
-##### 从文件中创建RDD
+#### 从文件中创建RDD
 
 ~~~scala
 object Spark01_RDD_File {
@@ -165,7 +157,7 @@ object Spark01_RDD_File {
 }
 ~~~
 
-##### 创建并行度与分区
+#### 创建并行度与分区
 
 > makeRDD方法的第二参数就是指定分区与并行度的大小
 
@@ -192,13 +184,13 @@ object Spark01_RDD_Memory_Par {
 
 ![image-20240206171030471](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240206171030471-17072106324561.png)
 
-#### RDD常用方法
+### RDD常用方法
 
-##### 转换操作(算子)
+#### 转换操作(算子)
 
 > 转换功能通常用于将旧的RDD包装成新的RDD用
 
-###### map
+##### map
 
 将待处理的数据逐条读取发到计算节点处理
 
@@ -216,7 +208,7 @@ val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4))
 val mapRDD: RDD[Int] = rdd.map(_ * 2)
 ~~~
 
-###### mapPartitions
+##### mapPartitions
 
 将待处理的数据以分片的方式读取全部后发送给计算节点处理
 
@@ -240,7 +232,7 @@ val mpRDD: RDD[Int] = rdd.mapPartitions(iter => {
 })
 ~~~
 
-###### mapPartitionsWithIndex
+##### mapPartitionsWithIndex
 
 将待处理的数据以分区为单位发送给计算节点进行处理，并且在处理时可以获取到当前分区的索引
 
@@ -266,7 +258,7 @@ val mpRDD: RDD[Int] = rdd.mapPartitionsWithIndex((index, iter) => {
 })
 ~~~
 
-###### flatMap
+##### flatMap
 
 签名：
 
@@ -301,7 +293,7 @@ val flatRDD: RDD[Any] = rdd.flatMap(data => {
 })
 ```
 
-###### glom
+##### glom
 
 将同一个分区的数据放入数组中，形成一个二维数组
 
@@ -324,7 +316,7 @@ val maxRDD: RDD[Int] = glomRDD.map(array => array.max)
 println(maxRDD.collect().sum)
 ~~~
 
-###### groupBy
+##### groupBy
 
 对数据进行分组，根据函数返回的key值进行分组，分区数量不变数据会被打乱重新组合，这个操作叫做shuffle
 
@@ -362,7 +354,7 @@ timeRDD.map({
 }).collect().foreach(println)
 ~~~
 
-###### filter
+##### filter
 
 根据根据指定规则进行筛选过滤，符合规则的数据保留不符合的数据过滤，过滤后分区不变但是分区内数据会不均衡导致数据倾斜
 
@@ -392,7 +384,7 @@ rdd.filter(
 ).collect().foreach(println)
 ```
 
-###### sample
+##### sample
 
 根据指定规则从数据集中抽取数据，基于伯努利随机算法
 
@@ -420,7 +412,7 @@ println(rdd.sample(
 ).collect().mkString(","))
 ```
 
-###### distinct
+##### distinct
 
 签名：
 
@@ -436,7 +428,7 @@ val rdd: RDD[Int] = sc.makeRDD(List(1,2,3,4,1,2,3,4))
 rdd.distinct().collect().foreach(println)
 ```
 
-###### coalesce
+##### coalesce
 
 可对分区进行缩减，默认情况下缩减分区时数据不会被打乱平均分，如果需要打乱重新分区(shuffle)将shuffle=true即可，也可以扩大分区，但是再扩大分区时不进行shuffle那么扩大分区是没有意义的需要打乱重新组合
 
@@ -456,7 +448,7 @@ val rdd: RDD[Int] = sc.makeRDD(List(1,2,3,4),4)
 rdd.coalesce(2).saveAsTextFile("output")
 ```
 
-###### sortBy
+##### sortBy
 
 对数据进行排序，排序操作分区会进行shuffle操作，默认升序通过修改ascending=false改为降序
 
@@ -480,7 +472,7 @@ rdd.sortBy(num => num).saveAsTextFile("output")
 //案例2
 ```
 
-###### intersection
+##### intersection
 
 获取2组数据中的交集，数据类型必须相同
 
@@ -499,7 +491,7 @@ val rdd2: RDD[Int] = sc.makeRDD(List(3, 4, 5, 6))
 println(rdd1.intersection(rdd2).collect().mkString(","))
 ```
 
-###### union
+##### union
 
 获取2组数据中的并集，数据类型必须相同
 
@@ -518,7 +510,7 @@ val rdd2: RDD[Int] = sc.makeRDD(List(3, 4, 5, 6))
 println(rdd1.union(rdd2).collect().mkString(","))
 ```
 
-###### subtract
+##### subtract
 
 获取2组数据中的差集，数据类型必须相同
 
@@ -537,7 +529,7 @@ val rdd2: RDD[Int] = sc.makeRDD(List(3, 4, 5, 6))
 println(rdd1.subtract(rdd2).collect().mkString(","))
 ```
 
-###### zip
+##### zip
 
 将2组数据关联上，分区数量必须相同分区中数据必须相同
 
@@ -556,7 +548,7 @@ val rdd2: RDD[Int] = sc.makeRDD(List(3, 4, 5, 6))
 println(rdd1.zip(rdd2).collect().mkString(","))
 ```
 
-###### partitionBy
+##### partitionBy
 
 对分区数据全部重新分区，与coalesce不同的是partitionBy会将所有数据根据新的规则重新分区
 
@@ -576,7 +568,7 @@ val mapRDD: RDD[(Int, Int)] = rdd.map((_, 1))
 mapRDD.partitionBy(new HashPartitioner(2)).saveAsTextFile("output")
 ```
 
-###### reduceByKey
+##### reduceByKey
 
 将相同key的数据进行两两聚合，当key有2个或者以上的数据才会执行，否则就直接返回
 
@@ -601,7 +593,7 @@ val reduceRDD: RDD[(String, Int)] = rdd.reduceByKey((x: Int, y: Int) => {
 reduceRDD.collect().foreach(println)
 ```
 
-###### groupByKey
+##### groupByKey
 
 将相同key的数据进行分组形成一个元组
 
@@ -625,7 +617,7 @@ val groupRDD: RDD[(String, Iterable[Int])] = rdd.groupByKey()
 groupRDD.collect().foreach(println)
 ```
 
-###### aggregateByKey
+##### aggregateByKey
 
 reduceByKey只能用于分区内和分区间计算规则是一样的情况下，aggregateByKey可以传入2个计算规则同时计算分区间和分区内的计算规则
 
@@ -675,7 +667,7 @@ val resultRDD: RDD[(String, Int)] = newRDD.mapValues({
 resultRDD.collect().foreach(println)
 ```
 
-###### join
+##### join
 
 对2组kv数据集进行关联，关联后相同k的数据会被组合一起形成 (k,(v,w))的一组rdd
 
@@ -700,7 +692,7 @@ val joinRDD: RDD[(String, (Int, Int))] = rdd1.join(rdd2)
 joinRDD.collect().foreach(println)
 ```
 
-###### leftOuterJoin
+##### leftOuterJoin
 
 对2组kv数据集进行关联，关联后相同k的数据会被组合一起形成 (k,(v,w))的一组rdd
 
@@ -725,7 +717,7 @@ val leftJoinRDD: RDD[(String, (Int, Option[Int]))] = rdd1.leftOuterJoin(rdd2)
 leftJoinRDD.collect().foreach(println)
 ```
 
-###### rightOuterJoin
+##### rightOuterJoin
 
 对2组kv数据集进行关联，关联后相同k的数据会被组合一起形成 (k,(v,w))的一组rdd
 
@@ -749,7 +741,7 @@ val rightJoinRDD: RDD[(String, (Option[Int], Int))] = rdd1.rightOuterJoin(rdd2)
 rightJoinRDD.collect().foreach(println)
 ```
 
-###### cogroup
+##### cogroup
 
 对2组kv数据集进行关联，关联后相同k的数据会被组合一起形成 (k,(集合,集合))的一组rdd，与join类似不过连接后的数据是集合数据不是单个元素
 
@@ -776,12 +768,12 @@ val rightJoinRDD: RDD[(String, (Iterable[Int], Iterable[Int]))] = rdd1.cogroup(r
 rightJoinRDD.collect().foreach(println)
 ```
 
-##### 行动操作(算子)
+#### 行动操作(算子)
 
 > 行动功能通常用于触发任务的调度和作业的执行
 
 
-###### collect
+##### collect
 
 采集操作，实际是触发创建job
 
@@ -799,7 +791,7 @@ val rdd: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4))
 rdd.collect().foreach(println)
 ```
 
-###### count
+##### count
 
 获取数据源中数据的个数
 
@@ -809,7 +801,7 @@ rdd.collect().foreach(println)
 def count(): Long
 ```
 
-###### first
+##### first
 
 获取数据源中的数据第一个
 
@@ -819,7 +811,7 @@ def count(): Long
 def first(): T
 ```
 
-###### take
+##### take
 
 从数据源中获取指定数量的数据
 
@@ -829,7 +821,7 @@ def first(): T
 def take(num: Int): Array[T]
 ```
 
-###### takeOrdered
+##### takeOrdered
 
 对数据排序后从数据源中获取指定数量的数据
 
@@ -839,7 +831,7 @@ def take(num: Int): Array[T]
 def takeOrdered(num: Int)(implicit ord: Ordering[T]): Array[T]
 ```
 
-###### aggregate
+##### aggregate
 
 直接触发分区内操作和分区间操作并返回结果，与aggregateByKey不同的是aggregateByKey会产生新的RDD，aggregate直接产生结果，aggregateByKey发初始值只会参与分区内计算，aggregate初始值会参与分区内计算并且参与分区间计算
 
@@ -858,7 +850,7 @@ val result: Int = rdd.aggregate(0)(_ + _, _ + _)
 println(result)
 ```
 
-###### fold
+##### fold
 
 假如分区内操作和分区间操作一样那么可以使用fold操作算子，该算子逻辑和aggregate一样
 
@@ -877,7 +869,7 @@ val result: Int = rdd.fold(0)(_ + _)
 println(result)
 ```
 
-###### countByKey
+##### countByKey
 
 对元组的第一位作为key，统计key的出现次数
 
@@ -898,7 +890,7 @@ val map: collection.Map[String, Long] = rdd.countByKey()
 println(map)
 ```
 
-###### reduce
+##### reduce
 
 聚合RDD中的所有元素，先聚合分区内数据，再聚合分区间数据
 
@@ -908,7 +900,7 @@ println(map)
 def reduce(f: (T, T) => T): T
 ~~~
 
-###### save
+##### save
 
 将RDD输出到文件中
 
@@ -937,7 +929,7 @@ rdd.saveAsSequenceFile("output2")
 sc.stop()
 ~~~
 
-###### foreach
+##### foreach
 
 签名：
 
@@ -956,15 +948,15 @@ println("****************")
 rdd.foreach(println)
 ~~~
 
-#### RDD序列化
+### RDD序列化
 
-##### 闭包检查
+#### 闭包检查
 
 从计算的角度，算子外的代码都是在Driver端执行，算子里面的代码都是在Executor端执行。那么在scala的函数式编程中，就会导致算子内经常会用到算子外的数据，这样就会形成闭包的效果，如果使用的算子外的数据无法序列化，就意味着无法传值给Executor端执行，就会发生错误，所以需要在执行任务计算前，检测闭包内的对象是否可以解析序列化，这操作我们通常称为闭包检查
 
-## Kryo序列化框架
+#### Kryo序列化框架
 
-### Spark中存在的序列化问题
+##### Spark中存在的序列化问题
 
 执行如下代码会发现一个无法序列化的问题
 
@@ -993,7 +985,7 @@ object Spark01_RDD_Serial {
 
 > 因为算子外的代码在Driver端执行，算子里面的代码都是在Executor端执行，这就会有一个问题Driver中new的Search要在Executor中执行运输，那么就是说Search要传输到Executor才能执行所以需要序列化，又因为Search对象没有序列化修饰所以导致无法传输，，所以报错了
 
-### 使用Kryo序列化框架
+#### 使用Kryo序列化框架
 
 由于Spark 2.x之后内部已经有很多的实现使用了Kryo框架序列化所以无需而外引入包，直接修改一些SparkConf指定序列化规则即可
 
@@ -1029,5 +1021,219 @@ object Spark01_RDD_Serial {
 }
 ~~~
 
-## RDD的依赖与血缘关系
+### RDD的依赖与血缘关系
 
+#### 血缘
+
+Spark中的每一个算子都是一个独立的操作，为了解决当计算过程中发生意外时可以重试这个问题，那么Spark的每一步操作都可以获取到当前操作前的全部操作步骤，这就是RDD的血缘，RDD需要恢复丢失的分区时就通过血缘重源头操作重新执行一遍
+
+以下代码每一步fileRDD.toDebugString会打印当前对象的血缘关系
+
+~~~scala
+//准备环境 [*]:表示使用当前系统最大核
+val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+val sc: SparkContext = new SparkContext(sparkConf)
+
+val fileRDD: RDD[String] = sc.textFile("datas/1.txt")
+println(fileRDD.toDebugString)
+println("---------------------------------")
+
+val wordRDD: RDD[String] = fileRDD.flatMap(_.split(" "))
+println(wordRDD.toDebugString)
+println("---------------------------------")
+
+val mapRDD: RDD[(String, Int)] = wordRDD.map((_, 1))
+println(mapRDD.toDebugString)
+println("---------------------------------")
+
+val resultRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_ + _)
+println(resultRDD.toDebugString)
+println("---------------------------------")
+
+resultRDD.collect()
+sc.stop()
+~~~
+
+可以看到血缘在不断的累加操作下会越来越长
+
+![image-20240514190141839](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240514190141839.png)
+
+#### 依赖
+
+依赖指的是2个相邻的RDD的关系
+
+~~~scala
+//准备环境 [*]:表示使用当前系统最大核
+val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("RDD")
+val sc: SparkContext = new SparkContext(sparkConf)
+
+val fileRDD: RDD[String] = sc.textFile("datas/1.txt")
+println(fileRDD.dependencies)
+println("---------------------------------")
+
+val wordRDD: RDD[String] = fileRDD.flatMap(_.split(" "))
+println(wordRDD.dependencies)
+println("---------------------------------")
+
+val mapRDD: RDD[(String, Int)] = wordRDD.map((_, 1))
+println(mapRDD.dependencies)
+println("---------------------------------")
+
+val resultRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_ + _)
+println(resultRDD.dependencies)
+println("---------------------------------")
+
+resultRDD.collect()
+sc.stop()
+~~~
+
+![image-20240514190355791](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240514190355791.png)
+
+> OneToOneDependency（窄依赖）：窄依赖表示每一个父(上游)RDD 的 Partition 最多被子（下游）RDD 的一个 Partition 使用， 窄依赖我们形象的比喻为独生子女（即一个下游的RDD只需要等待一个上游RDD即可就继续执行）
+>
+> ShuffleDependency（宽依赖）：宽依赖表示同一个父（上游）RDD 的 Partition 被多个子（下游）RDD 的 Partition 依赖，会引起 Shuffle，总结：宽依赖我们形象的比喻为多生（即一个下游的RDD只需要等待多个上游RDD汇聚到一起后才能继续执行）
+
+### RDD阶段
+
+什么是RDD阶段，这与RDD的依赖于血缘有密切关系。
+
+当一个下游RDD与一个下游RDD形成OneToOneDependency（窄依赖）关系，那么这个RDD就会一直由同一个Task执行，所有阶段是一样的
+
+![image-20240514192829129](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240514192829129.png)
+
+当一个下游RDD与一个下游RDD形成ShuffleDependency（宽依赖）关系，例如图中的RDD在执行完毕后需要汇聚在一起然后再执行，那么就需要重新创建Task运行RDD这就是一个新的阶段
+
+![image-20240514192958278](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240514192958278.png)
+
+### RDD任务划分
+
+RDD任务切分中间分为：Application、Job、Stage和Task
+
+* Application：初始化一个SparkContext即生成一个Application
+* Job：一个Action算子就会生成一个Job
+* Stage：Stage等于宽依赖（ShuffleDependency）的个数加1
+* Task：一个Stage阶段中，最后一个RDD的分区个数就是Task的个数
+
+> 注意：Application=>Job=>Stage=>Task每一层都是1对n的关系
+
+![image-20240515093239662](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515093239662.png)
+
+### RDD的持久化
+
+为什么要持久化？通过以下案例解答
+
+![image-20240515095236597](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515095236597.png)
+
+上面的代码中我们想复用mapRDD中的数据为2个collect操作提供上游数据，但是我们发现mapRDD的数据并没有被复用而是被重复执行了，这是因为在SparkRDD中是不会保存数据的做完一次计算后就会把数据全部传递给下游，第一次计算的数据传递给了`mapRDD.reduceByKey(_ + _)`，此时RDD已经是空的`mapRDD.groupByKey()`也需要数据那么就通过血缘重新计算得到一个新的mapRDD传递给`mapRDD.groupByKey()`
+
+> 我们可以将mapRDD数据持久化到内存或者磁盘中，这样让接下来的操作重磁盘读取就不用重新计算了，这就是RDD的持久化用处，可以极大的优化性能
+
+![image-20240515095304351](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515095304351.png)
+
+#### 内存持久化
+
+将数据持久化到内存使用RDD的`cache()`或`persist()`方法都一样
+
+> `persist()`方法提供了更高级的操作，在不传递参数时默认是持久化到内存
+>
+> 持久化操作必须在行动算子执行时才去完成的，持久化数据保存在JVM内存中
+
+![image-20240515100104952](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515100104952.png)
+
+#### 磁盘持久化
+
+##### persist
+
+将数据持久化到内存使用RDD的`persist(StorageLevel.DISK_ONLY)`方法都，`persist()`中也提供很多了持久化方式可以选择
+
+> 持久化操作必须在行动算子执行时才去完成的
+>
+> 重点：persist的持久化是保存到临时文件中，执行完毕会后被删除
+
+![image-20240515100447022](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515100447022.png)
+
+##### checkpoint
+
+checkpoint与persist不同之处，checkpoint需要设置保存文件路径，因为checkpoint会把数据落盘到磁盘中永久保存可以用于恢复
+
+> 因为checkpoint涉及到磁盘IO所以性能低，是独立执行的，一般情况下checkpoint会和cache联合使用，通常先调用cache再调用checkpoint
+
+![image-20240515101629017](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515101629017.png)
+
+#### 存储级别
+
+`persist()`参数中存储级别说明
+
+| 级别                | 使用的空间 | CPU时间 | 是否在内存中 | 是否在磁盘上 | 备注                                                         |
+| ------------------- | ---------- | ------- | ------------ | ------------ | ------------------------------------------------------------ |
+| MEMORY_ONLY         | 高         | 低      | 是           | 否           |                                                              |
+| MEMORY_ONLY_SER     | 低         | 高      | 是           | 否           |                                                              |
+| MEMORY_AND_DISK     | 高         | 中等    | 部分         | 部分         | 如果数据在内存放不下，溢出的写入磁盘                         |
+| MEMORY_AND_DISK_SER | 低         | 高      | 部分         | 部分         | 如果数据在内存放不下，溢出的写入磁盘。内存中存放序列化后的数据 |
+| DISK_ONLY           | 低         | 高      | 否           | 是           |                                                              |
+
+* cache：数据临时存储再内存中，会在血缘关系中添加新的依赖，发生问题可以重头读取数据
+* persist：数据存存储到磁盘临时文件中，作业执行完毕后，临时文件会被删除
+* checkpoint：数据持久的保存在磁盘文件中进行数据重用，涉及磁盘IO性能低，会独立的执行存储作业，为了提高效率通常和cache一起使用，会切断血缘关系建立新的血缘关系，意味checkpoint之前的血缘关系会丢失
+
+### RDD分区器
+
+在开发过程中，通常我们需要自定义分区存放数据方便查阅，可以通过继承`Partitioner`实现自定义的分区
+
+![image-20240515110157844](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515110157844.png)
+
+### RDD的文件存储与读取
+
+#### 文件存储
+
+RDD文件存储方式有三种分别是textFile、ObjectFile、SequenceFile
+
+![image-20240515111045300](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515111045300.png)
+
+#### 文件读取
+
+3重存储方式对应的读取
+
+![image-20240515111515519](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515111515519.png)
+
+## 核心编程（累加器 ）
+
+> 累加器是分布式共享只写变量
+>
+> 累加器用来把Executor 端变量信息聚合到Driver 端。在Driver 程序中定义的变量，在Executor 端的每个Task 都会得到这个变量的一份新的副本，每个 task 更新这些副本的值后， 传回Driver 端进行 merge
+
+### 系统累加器
+
+Spark系统默认提供了简单的累加器，可以通过sc获取
+
+![image-20240515114647696](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515114647696.png)
+
+### 自定义累加器
+
+实现自定义累加器只需要继承`AccumulatorV2`后重新方法，并且将写好的累加器创建注册到Spark中
+
+以下例子就是利用累加器替代reduceByKey行动算子完成单词统计的业务，利用累加器可以优化程序的shuffle次数提升程序性能
+
+![image-20240515122258944](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515122258944.png)
+
+![image-20240515122319624](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515122319624.png)
+
+### 使用注意事项
+
+> 累加器通常都放在行动算子中操作，否则就会出现累加器少加或多加问题
+
+累加器少加：在转换算子中调用累加器时，没有执行行动算子的话，累加器是不会累加
+
+![image-20240515115016102](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515115016102.png)
+
+累加器多加：在转换算子中调用累加器时，多次执行行动算子导致重复累加
+
+![image-20240515115242728](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515115242728.png)
+
+## 核心编程（广播变量 ）
+
+> 广播变量用来高效分发较大的对象。向所有工作节点发送一个较大的只读值，以供一个或多个 Spark 操作使用。比如，如果你的应用需要向所有节点发送一个较大的只读查询表， 广播变量用起来都很顺手。在多个并行操作中使用同一个变量，但是 Spark 会为每个任务分别发送
+
+在开发过程中通常会定义一些常量使用，但是这些常量再每个Executor都Task会创建，假如在同一个Executor下创建了多个Task那么就需要创建多个常量这样浪费了很多内存空间，通过广播的方式让一个Executor下创建一个常量，然后的多个Task共享这一个常量这样可以优化程序
+
+![image-20240515134347507](E:\one-drive-data\OneDrive\CSDN\大数据专栏\images\image-20240515134347507.png)
